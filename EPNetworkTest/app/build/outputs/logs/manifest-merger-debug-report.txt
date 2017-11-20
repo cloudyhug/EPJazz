@@ -1,0 +1,110 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:2:1-26:12
+	package
+		ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:3:5-44
+		INJECTED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml
+		INJECTED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml
+		INJECTED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml
+		INJECTED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml
+uses-sdk
+ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/lin/.android/build-cache/e1d19f0d46961f162289873c4b3c56fb4a87d2f6/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/lin/.android/build-cache/a49ea6f8cecc5b89dd98d244fe31dd2f3cedba55/output/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/lin/.android/build-cache/14529a2086a2b4e936ad05e02386ea657eeba4cd/output/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/lin/.android/build-cache/bae66c438ea13d301ec73b945e3a04d6e4eff019/output/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /home/lin/.android/build-cache/301219d75412e7a9e5a8623c48b7255fbe82f3d1/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /home/lin/.android/build-cache/c3d02f1a5da7c94db3bb6455dd4a81e5cf387f0c/output/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /home/lin/.android/build-cache/ba24c35572705faf3ecf8e57de348c41d8ae4219/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /home/lin/.android/build-cache/f6c85f16f90ad7fbd3a6541ef4509e90b144091f/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /home/lin/.android/build-cache/a31af4dc6ad2eeb04137a2307f2217f8dce3760e/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/lin/.android/build-cache/4931e032b7211c32d23bbf7f2a668a09037c784e/output/AndroidManifest.xml:5:5-7:41
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/lin/.android/build-cache/e1d19f0d46961f162289873c4b3c56fb4a87d2f6/output/AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml
+		INJECTED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:5:15-41
+		INJECTED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml
+		INJECTED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:7:5-76
+	android:name
+		ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:7:22-73
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:8:5-76
+	android:name
+		ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:8:22-73
+uses-permission#android.permission.CHANGE_NETWORK_STATE
+ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:9:5-79
+	android:name
+		ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:9:22-76
+uses-permission#android.permission.INTERNET
+ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:10:5-67
+	android:name
+		ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:10:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:11:5-79
+	android:name
+		ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:11:22-76
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:12:5-81
+	android:name
+		ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:12:22-78
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:13:5-75
+	android:name
+		ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:13:22-72
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:14:5-80
+	android:name
+		ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:14:22-77
+application
+ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:16:5-24:19
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/lin/.android/build-cache/e1d19f0d46961f162289873c4b3c56fb4a87d2f6/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/lin/.android/build-cache/a49ea6f8cecc5b89dd98d244fe31dd2f3cedba55/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/lin/.android/build-cache/14529a2086a2b4e936ad05e02386ea657eeba4cd/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/lin/.android/build-cache/bae66c438ea13d301ec73b945e3a04d6e4eff019/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /home/lin/.android/build-cache/301219d75412e7a9e5a8623c48b7255fbe82f3d1/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /home/lin/.android/build-cache/c3d02f1a5da7c94db3bb6455dd4a81e5cf387f0c/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /home/lin/.android/build-cache/ba24c35572705faf3ecf8e57de348c41d8ae4219/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /home/lin/.android/build-cache/f6c85f16f90ad7fbd3a6541ef4509e90b144091f/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /home/lin/.android/build-cache/a31af4dc6ad2eeb04137a2307f2217f8dce3760e/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/lin/.android/build-cache/4931e032b7211c32d23bbf7f2a668a09037c784e/output/AndroidManifest.xml:9:5-20
+	android:label
+		ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:19:9-41
+	android:supportsRtl
+		ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:21:9-35
+	android:roundIcon
+		ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:20:9-54
+	android:allowBackup
+		ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:17:9-35
+	android:icon
+		ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:18:9-43
+	android:theme
+		ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:22:9-40
+activity#com.example.lin.epnetworktest.MainActivity
+ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:23:9-59
+	android:name
+		ADDED from /home/lin/AndroidStudioProjects/EPNetworkTest/app/src/main/AndroidManifest.xml:23:19-47
+meta-data#android.support.VERSION
+ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/lin/.android/build-cache/e1d19f0d46961f162289873c4b3c56fb4a87d2f6/output/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/lin/.android/build-cache/a49ea6f8cecc5b89dd98d244fe31dd2f3cedba55/output/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/lin/.android/build-cache/14529a2086a2b4e936ad05e02386ea657eeba4cd/output/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/lin/.android/build-cache/bae66c438ea13d301ec73b945e3a04d6e4eff019/output/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /home/lin/.android/build-cache/301219d75412e7a9e5a8623c48b7255fbe82f3d1/output/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /home/lin/.android/build-cache/c3d02f1a5da7c94db3bb6455dd4a81e5cf387f0c/output/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /home/lin/.android/build-cache/ba24c35572705faf3ecf8e57de348c41d8ae4219/output/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /home/lin/.android/build-cache/f6c85f16f90ad7fbd3a6541ef4509e90b144091f/output/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /home/lin/.android/build-cache/a31af4dc6ad2eeb04137a2307f2217f8dce3760e/output/AndroidManifest.xml:25:5-27:41
+	android:value
+		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/lin/.android/build-cache/e1d19f0d46961f162289873c4b3c56fb4a87d2f6/output/AndroidManifest.xml:27:9-38
+	android:name
+		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/lin/.android/build-cache/e1d19f0d46961f162289873c4b3c56fb4a87d2f6/output/AndroidManifest.xml:26:9-47
