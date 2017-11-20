@@ -1,0 +1,254 @@
+[
+    {
+        "outputFile": "/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 39,
+                    "endOffset": 90
+                },
+                "from": {
+                    "file": "/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 464,
+                        "endColumn": 39,
+                        "endOffset": 499
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 95,
+                    "endColumn": 40,
+                    "endOffset": 131
+                },
+                "from": {
+                    "file": "/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 182,
+                        "endColumn": 40,
+                        "endOffset": 218
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 136,
+                    "endColumn": 48,
+                    "endOffset": 180
+                },
+                "from": {
+                    "file": "/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 48,
+                        "endOffset": 99
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 185,
+                    "endColumn": 35,
+                    "endOffset": 216
+                },
+                "from": {
+                    "file": "/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 294,
+                        "endColumn": 35,
+                        "endOffset": 325
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 221,
+                    "endColumn": 34,
+                    "endOffset": 251
+                },
+                "from": {
+                    "file": "/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 387,
+                        "endColumn": 34,
+                        "endOffset": 417
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 256,
+                    "endColumn": 35,
+                    "endOffset": 287
+                },
+                "from": {
+                    "file": "/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 258,
+                        "endColumn": 35,
+                        "endOffset": 289
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 292,
+                    "endColumn": 33,
+                    "endOffset": 321
+                },
+                "from": {
+                    "file": "/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 504,
+                        "endColumn": 33,
+                        "endOffset": 533
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 326,
+                    "endColumn": 34,
+                    "endOffset": 356
+                },
+                "from": {
+                    "file": "/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 223,
+                        "endColumn": 34,
+                        "endOffset": 253
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 361,
+                    "endColumn": 39,
+                    "endOffset": 396
+                },
+                "from": {
+                    "file": "/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 104,
+                        "endColumn": 39,
+                        "endOffset": 139
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 401,
+                    "endColumn": 37,
+                    "endOffset": 434
+                },
+                "from": {
+                    "file": "/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 144,
+                        "endColumn": 37,
+                        "endOffset": 177
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 439,
+                    "endColumn": 56,
+                    "endOffset": 491
+                },
+                "from": {
+                    "file": "/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 330,
+                        "endColumn": 56,
+                        "endOffset": 382
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 496,
+                    "endColumn": 41,
+                    "endOffset": 533
+                },
+                "from": {
+                    "file": "/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 422,
+                        "endColumn": 41,
+                        "endOffset": 459
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 538,
+                    "endColumn": 69,
+                    "endOffset": 603
+                },
+                "from": {
+                    "file": "/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/src/main/res/values/styles.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 70,
+                        "endOffset": 121
+                    }
+                }
+            }
+        ]
+    }
+]
