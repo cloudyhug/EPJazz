@@ -3,29 +3,31 @@ package com.example.lin.epnetworktest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.net.wifi.WifiManager;
-import android.net.wifi.p2p.WifiP2pConfig;
-import android.net.wifi.p2p.WifiP2pDevice;
-import android.net.wifi.p2p.WifiP2pDeviceList;
+import android.net.NetworkInfo;
 import android.net.wifi.p2p.WifiP2pManager;
 
-import java.util.Collection;
-
 /**
- * A BroadcastReceiver that notifies of important Wi-Fi p2p events.
+ * Created by lin on 23/11/17.
  */
+
 public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
 
-    private WifiP2pManager mManager;
+    private WiFiDirectActivity activity;
     private WifiP2pManager.Channel mChannel;
-    private MainActivity mActivity;
+    private WifiP2pManager mManager;
+    private WifiP2pManager.PeerListListener peerListListener;
+    private WifiP2pManager.ConnectionInfoListener connectionListener;
 
-    public WiFiDirectBroadcastReceiver(WifiP2pManager manager, WifiP2pManager.Channel channel,
-                                       MainActivity activity) {
+
+    public WiFiDirectBroadcastReceiver(WifiP2pManager mManager,
+                                       WifiP2pManager.Channel mChannel,
+                                       WifiP2pManager.PeerListListener peerListListener,
+                                       WiFiDirectActivity activity) {
         super();
-        this.mManager = manager;
-        this.mChannel = channel;
-        this.mActivity = activity;
+        this.activity = activity;
+        this.mChannel = mChannel;
+        this.mManager = mManager;
+        this.peerListListener = peerListListener;
     }
 
     @Override
@@ -51,12 +53,27 @@ public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
             if (mManager != null) {
                 mManager.requestPeers(mChannel, peerListListener);
             }
-            Log.d(WiFiDirectActivity.TAG, "P2P peers changed");
+            // ("P2P peers changed");
 
         } else if (WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION.equals(action)) {
 
             // Connection state changed!  We should probably do something about
             // that.
+
+            if (mManager == null) {
+                return;
+            }
+
+            NetworkInfo networkInfo = (NetworkInfo) intent
+                    .getParcelableExtra(WifiP2pManager.EXTRA_NETWORK_INFO);
+
+            if (networkInfo.isConnected()) {
+
+                // We are connected with the other device, request connection
+                // info to find group owner IP
+
+                mManager.requestConnectionInfo(mChannel, connectionListener);
+            }
 
         } else if (WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION.equals(action)) {
             DeviceListFragment fragment = (DeviceListFragment) activity.getFragmentManager()
@@ -65,29 +82,5 @@ public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
                     WifiP2pManager.EXTRA_WIFI_P2P_DEVICE));
 
         }
-    }
-
-    @Override
-    public void connect() {
-        // Picking the first device found on the network.
-        WifiP2pDevice device = peers.get(0);
-
-        WifiP2pConfig config = new WifiP2pConfig();
-        config.deviceAddress = device.deviceAddress;
-        config.wps.setup = WpsInfo.PBC;
-
-        mManager.connect(mChannel, config, new ActionListener() {
-
-            @Override
-            public void onSuccess() {
-                // WiFiDirectBroadcastReceiver will notify us. Ignore for now.
-            }
-
-            @Override
-            public void onFailure(int reason) {
-                Toast.makeText(WiFiDirectActivity.this, "Connect failed. Retry.",
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 }
