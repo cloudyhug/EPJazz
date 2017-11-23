@@ -1,24 +1,24 @@
 #Internal package file, do not edit.
-#Fri Oct 27 16:35:57 CEST 2017
-2.base=/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_90153bc9e2b55764a650643a17fccacc052dfc96
-5.file=/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_/res/layout/spinner_dropdown.xml
-5.set=ANDROID_RESOURCE
-3.base=/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_
-6.file=/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_/res/layout/main.xml
-2.set=DEX
-4.base=/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_b0210d8414142f7e0b219c714614a1a88dd3e228
+#Thu Nov 23 22:56:52 CET 2017
+2.base=/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_
+5.file=/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
+5.set=DEX
+3.base=/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_
+6.file=/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_/res/layout/activity_main.xml
+2.set=ANDROID_RESOURCE
+4.base=/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_
 count=7
-0.file=/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_/res/drawable-mdpi-v4/ic_launcher.png
-5.base=/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_
-4.set=DEX
-6.base=/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_
-1.file=/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_/AndroidManifest.xml
+0.file=/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_/res/layout/spinner_dropdown.xml
+5.base=/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
+4.set=ANDROID_RESOURCE
+6.base=/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_
+1.file=/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_/resources.arsc
 1.set=ANDROID_RESOURCE
-2.file=/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_90153bc9e2b55764a650643a17fccacc052dfc96/classes.dex
+2.file=/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_/res/layout/main.xml
 6.set=ANDROID_RESOURCE
-0.base=/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_
-3.file=/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_/resources.arsc
+0.base=/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_
+3.file=/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_/AndroidManifest.xml
 3.set=ANDROID_RESOURCE
-1.base=/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_
-4.file=/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_b0210d8414142f7e0b219c714614a1a88dd3e228/classes.dex
+1.base=/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_
+4.file=/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/resources-debug.ap_/res/drawable-mdpi-v4/ic_launcher.png
 0.set=ANDROID_RESOURCE

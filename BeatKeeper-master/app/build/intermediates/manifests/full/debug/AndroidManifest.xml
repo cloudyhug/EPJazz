@@ -16,15 +16,26 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.MyTheme" >
         <activity
-            android:name="pntanasis.android.metronome.MetronomeActivity"
+            android:name="pntanasis.android.metronome.MainActivity"
             android:configChanges="orientation"
-            android:label="@string/app_name"
+            android:label="Jazz"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="pntanasis.android.metronome.MetronomeActivity"
+            android:configChanges="orientation"
+            android:label="@string/app_name"
+            android:parentActivityName="pntanasis.android.metronome.MainActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" >
+            </meta-data>
         </activity>
 
         <service
