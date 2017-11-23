@@ -13,7 +13,8 @@ public class WiFiDirectConnectionInfoListener implements WifiP2pManager.Connecti
     @Override
     public void onConnectionInfoAvailable(WifiP2pInfo info) {
         // InetAddress from WifiP2pInfo struct.
-        InetAddress groupOwnerAddress = info.groupOwnerAddress.getHostAddress());
+        InetAddress groupOwnerAddress = info.groupOwnerAddress.getHostAddress();
+        // erreur de type inetaddress != string
 
         // After the group negotiation, we can determine the group owner
         // (server).

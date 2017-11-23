@@ -122,7 +122,7 @@ public class WiFiDirectActivity extends AppCompatActivity {
         this.isWifiP2pEnabled = enabled;
     }
 
-    @Override
+    // override connect ??
     public void connect() {
         // Picking the first device found on the network.
         WifiP2pDevice device = peers.get(0);
