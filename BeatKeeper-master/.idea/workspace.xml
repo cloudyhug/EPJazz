@@ -9,7 +9,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="beec1c72-d762-4ea6-8e15-d711fe00f8d5" name="Default" comment="Ajout d'une première page qui permet d'accéder à la seconde qui est le metronome">
+    <list default="true" id="beec1c72-d762-4ea6-8e15-d711fe00f8d5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BeatKeeper-master.iws" />
@@ -2319,7 +2319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1511475050870</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Ajout d'une première page qui permet d'accéder à la seconde qui est le metronome">
+      <created>1511534895122</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1511534895122</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
