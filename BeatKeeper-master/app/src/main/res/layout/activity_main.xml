@@ -6,10 +6,11 @@
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="343dp"
-        android:layout_height="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="0.06"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName"
         android:text="Première page" />
 

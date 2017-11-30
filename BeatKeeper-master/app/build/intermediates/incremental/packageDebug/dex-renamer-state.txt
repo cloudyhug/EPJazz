@@ -1,4 +1,4 @@
-#Thu Nov 23 22:56:52 CET 2017
+#Thu Nov 30 23:50:02 CET 2017
 base.0=/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
 renamed.0=classes.dex
 file.0=/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex

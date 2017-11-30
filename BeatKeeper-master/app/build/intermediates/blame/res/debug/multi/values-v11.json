@@ -31,8 +31,8 @@
                     "startLine": 2,
                     "startColumn": 4,
                     "startOffset": 55,
-                    "endColumn": 68,
-                    "endOffset": 119
+                    "endColumn": 97,
+                    "endOffset": 148
                 },
                 "from": {
                     "file": "/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/src/main/res/values-v11/styles.xml",
@@ -40,8 +40,8 @@
                         "startLine": 2,
                         "startColumn": 4,
                         "startOffset": 55,
-                        "endColumn": 69,
-                        "endOffset": 120
+                        "endColumn": 98,
+                        "endOffset": 149
                     }
                 }
             }
