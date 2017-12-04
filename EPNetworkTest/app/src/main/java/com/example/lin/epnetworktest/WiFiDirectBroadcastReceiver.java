@@ -4,8 +4,12 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.NetworkInfo;
+import android.net.wifi.p2p.WifiP2pConfig;
 import android.net.wifi.p2p.WifiP2pDevice;
+import android.net.wifi.p2p.WifiP2pDeviceList;
 import android.net.wifi.p2p.WifiP2pManager;
+
+import java.util.ArrayList;
 
 /**
  * Created by lin on 23/11/17.
@@ -16,21 +20,65 @@ public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
     private WiFiDirectActivity activity;
     private WifiP2pManager.Channel mChannel;
     private WifiP2pManager mManager;
-    private WifiP2pManager.PeerListListener peerListListener;
-    private WifiP2pManager.ConnectionInfoListener connectionListener;
-
+    private WifiP2pManager.PeerListListener mPeerListListener;
+    private ArrayList<String> connectedPeers;
 
     public WiFiDirectBroadcastReceiver(WifiP2pManager mManager,
                                        WifiP2pManager.Channel mChannel,
-                                       WifiP2pManager.PeerListListener peerListListener,
                                        WiFiDirectActivity activity) {
         super();
         this.activity = activity;
         this.mChannel = mChannel;
         this.mManager = mManager;
-        this.peerListListener = peerListListener;
+        this.connectedPeers = new ArrayList<>();
+        this.mPeerListListener = new WifiP2pManager.PeerListListener() {
+
+            // This method is called everytime we request a peer list from
+            // the WifiP2pManager object.
+            @Override
+            public void onPeersAvailable(WifiP2pDeviceList peers) {
+                checkAvailableConnections(peers);
+            }
+        };
     }
 
+    // Checks the available connections in the peer list.
+    public void checkAvailableConnections(WifiP2pDeviceList peers) {
+        if (peers.getDeviceList().size() == 0) {
+            // No peers found on the network yet -> become the leader
+
+        }
+
+        // Iterating through the peer list
+        for (WifiP2pDevice device : peers.getDeviceList()) {
+            // If we are not yet connected to this device
+            if (!connectedPeers.contains(device.deviceAddress)) {
+                WifiP2pConfig config = new WifiP2pConfig();
+                config.deviceAddress = device.deviceAddress;
+                mManager.connect(mChannel, config, new WifiP2pManager.ActionListener() {
+
+                    @Override
+                    public void onSuccess() {
+                        // launch socket connection with peer ?
+
+                    }
+
+                    @Override
+                    public void onFailure(int reason) {
+                        // failure
+                    }
+                });
+                connectedPeers.add(device.deviceAddress);
+                startSocketConnection(device.deviceName);
+            }
+        }
+    }
+
+    public void startSocketConnection(String hostname) {
+
+    }
+
+    // Any Wifi P2P event will call this method.
     @Override
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
@@ -44,7 +92,6 @@ public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
                 activity.setIsWifiP2pEnabled(false);
             }
         } else if (WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION.equals(action)) {
-
             // The peer list has changed!  We should probably do something about
             // that.
 
@@ -52,37 +99,16 @@ public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
             // asynchronous call and the calling activity is notified with a
             // callback on PeerListListener.onPeersAvailable()
             if (mManager != null) {
-                mManager.requestPeers(mChannel, peerListListener);
+                mManager.requestPeers(mChannel, mPeerListListener);
             }
-            // ("P2P peers changed");
 
         } else if (WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION.equals(action)) {
 
             // Connection state changed!  We should probably do something about
             // that.
 
-            if (mManager == null) {
-                return;
-            }
-
-            NetworkInfo networkInfo = (NetworkInfo) intent
-                    .getParcelableExtra(WifiP2pManager.EXTRA_NETWORK_INFO);
-
-            if (networkInfo.isConnected()) {
-
-                // We are connected with the other device, request connection
-                // info to find group owner IP
-
-                mManager.requestConnectionInfo(mChannel, connectionListener);
-            }
-
         } else if (WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION.equals(action)) {
-            // classes ??
-            DeviceListFragment fragment = (DeviceListFragment) activity.getFragmentManager()
-                    .findFragmentById(R.id.frag_list);
-            fragment.updateThisDevice((WifiP2pDevice) intent.getParcelableExtra(
-                    WifiP2pManager.EXTRA_WIFI_P2P_DEVICE));
-
+            // ?
         }
     }
 }
