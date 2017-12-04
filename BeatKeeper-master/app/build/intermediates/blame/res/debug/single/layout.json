@@ -4,7 +4,31 @@
         "source": "/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/src/main/res/layout/spinner_dropdown.xml"
     },
     {
+        "merged": "/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/merged/debug/layout/spinner_dropdown.xml",
+        "source": "/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/src/main/res/layout/spinner_dropdown.xml"
+    },
+    {
+        "merged": "/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/merged/debug/layout/layout_avant_metronome.xml",
+        "source": "/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/src/main/res/layout/layout_avant_metronome.xml"
+    },
+    {
+        "merged": "/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/merged/debug/layout/parametrage.xml",
+        "source": "/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/src/main/res/layout/parametrage.xml"
+    },
+    {
+        "merged": "/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/merged/debug/layout/essai.xml",
+        "source": "/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/src/main/res/layout/essai.xml"
+    },
+    {
         "merged": "/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/build/intermediates/res/merged/debug/layout/main.xml",
         "source": "/Users/maxime/AndroidStudioProjects/BeatKeeper-master/app/src/main/res/layout/main.xml"
+    },
+    {
+        "merged": "/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/merged/debug/layout/activity_main.xml",
+        "source": "/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/merged/debug/layout/main.xml",
+        "source": "/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/src/main/res/layout/main.xml"
     }
 ]

@@ -12,5 +12,5 @@
     <string name="stop">Stop</string>
     <string name="timesignature">time signature</string>
     <string name="volume">volume</string>
-    <style name="Theme.MyTheme" parent="@android:style/Theme.Black"/>
+    <style name="Theme.MyTheme" parent="@android:style/Theme.Light"/>
 </resources>
