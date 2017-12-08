@@ -1,4 +1,4 @@
-package com.example.lin.epnetworktest;
+package com.example.lin.epnetworktest.model;
 
 import android.os.AsyncTask;
 import android.widget.TextView;
