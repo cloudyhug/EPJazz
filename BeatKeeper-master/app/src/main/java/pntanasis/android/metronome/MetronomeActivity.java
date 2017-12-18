@@ -3,6 +3,7 @@ package pntanasis.android.metronome;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.AudioManager;
 import android.os.AsyncTask;
@@ -27,7 +28,7 @@ public class MetronomeActivity extends Activity {
 	private final short minBpm = 40;
 	private final short maxBpm = 208;
 	
-	private short bpm = 100;
+	private int bpm = 100;
 	private short noteValue = 4;
 	private short beats = 4;
 	private short volume;
@@ -66,6 +67,9 @@ public class MetronomeActivity extends Activity {
         setContentView(R.layout.main);
         metroTask = new MetronomeAsyncTask();
         /* Set values and listeners to buttons and stuff */
+
+        Intent intent =getIntent();
+		bpm=intent.getIntExtra("bpm",0);
         
         TextView bpmText = (TextView) findViewById(R.id.bps);
         bpmText.setText(""+bpm);
@@ -141,7 +145,7 @@ public class MetronomeActivity extends Activity {
     	bpm++;
     	TextView bpmText = (TextView) findViewById(R.id.bps);
         bpmText.setText(""+bpm);
-        metroTask.setBpm(bpm);
+        metroTask.setBpm((short) bpm);
         maxBpmGuard();
     }
     
@@ -154,8 +158,8 @@ public class MetronomeActivity extends Activity {
 			if(bpm >= maxBpm)
 				bpm = maxBpm;
 	    	TextView bpmText = (TextView) findViewById(R.id.bps);
-	        bpmText.setText(""+bpm);
-	        metroTask.setBpm(bpm);
+			bpmText.setText(""+bpm);
+	        metroTask.setBpm((short) bpm);
 	        maxBpmGuard();
 			return true;
 		}
@@ -175,7 +179,7 @@ public class MetronomeActivity extends Activity {
     	bpm--;
     	TextView bpmText = (TextView) findViewById(R.id.bps);
         bpmText.setText(""+bpm);
-        metroTask.setBpm(bpm);
+        metroTask.setBpm((short) bpm);
         minBpmGuard();
     }
     
@@ -189,7 +193,7 @@ public class MetronomeActivity extends Activity {
 				bpm = minBpm;
 	    	TextView bpmText = (TextView) findViewById(R.id.bps);
 	        bpmText.setText(""+bpm);
-	        metroTask.setBpm(bpm);
+	        metroTask.setBpm((short) bpm);
 	        minBpmGuard();
 			return true;
 		}
@@ -274,7 +278,7 @@ public class MetronomeActivity extends Activity {
     
     public void onBackPressed() {
     	metroTask.stop();
-//    	metroTask = new MetronomeAsyncTask();
+    	metroTask = new MetronomeAsyncTask();
     	Runtime.getRuntime().gc();
 		audio.setStreamVolume(AudioManager.STREAM_MUSIC, initialVolume, AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
     	finish();    

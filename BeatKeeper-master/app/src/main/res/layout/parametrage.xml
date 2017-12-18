@@ -49,19 +49,21 @@
                             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />
                     </LinearLayout>
 
-                    <Button
-                        android:id="@+id/button3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/plus" />
+        <Button
+            android:id="@+id/boutonPlus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onPlusClick"
+            android:text="@string/plus" />
 
-                    <Button
-                        android:id="@+id/button4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/minus" />
+        <Button
+            android:id="@+id/boutonMoins"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onMinusClick"
+            android:text="@string/minus" />
 
-                    <TextView
+        <TextView
                         android:id="@+id/textView16"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -83,8 +85,15 @@
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:onClick="page1"
-        android:text="Démarrer" />
+        android:onClick="page_beatkeaper"
+        android:text="Démarrer Beat Keaper" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:onClick="page_lecture"
+        android:text="Démarrer perso" />
 
 
 </LinearLayout>

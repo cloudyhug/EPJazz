@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/merged/debug/drawable-mdpi/grille_a_night_in_tunisia.png",
+        "source": "/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/src/main/res/drawable-mdpi/grille_a_night_in_tunisia.png"
+    },
+    {
         "merged": "/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_launcher.png",
         "source": "/Users/maxime/AndroidStudioProjects/EPJazz/BeatKeeper-master/app/src/main/res/drawable-mdpi/ic_launcher.png"
     },
