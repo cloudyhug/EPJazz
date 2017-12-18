@@ -3,11 +3,13 @@ package com.example.lin.epnetworktest.view;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.net.wifi.WifiManager;
+import android.net.wifi.p2p.WifiP2pInfo;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.lin.epnetworktest.R;
 import com.example.lin.epnetworktest.controller.WiFiDirectBroadcastReceiver;
@@ -22,7 +24,11 @@ public class WiFiDirectActivity extends AppCompatActivity {
 
     private WiFiDirectBroadcastReceiver mReceiver;
 
+    private WifiP2pInfo info;
+
     private Button startButton;
+
+    private TextView text;
 
     // First method being called, at the creation of the activity.
     @Override
@@ -53,13 +59,27 @@ public class WiFiDirectActivity extends AppCompatActivity {
         this.mReceiver = new WiFiDirectBroadcastReceiver(mManager, mChannel, this);
 
         this.startButton = (Button) findViewById(R.id.startbutton);
+        this.text = (TextView) findViewById(R.id.text);
     }
 
     // Called everytime the start button is pressed.
-    public void startP2p(View v) {
-        // TODO :
-        mReceiver.discover();
+    public void startButtonPressed(View v) {
+        mReceiver.start();
     }
+
+    public void setConnectionInfo(WifiP2pInfo info) {
+        this.info = info;
+    }
+
+    public WifiP2pInfo getConnectionInfo() {
+        return info;
+    }
+
+    public void resetData() {
+        this.info = null;
+    }
+
+    public TextView getText() { return text; }
 
     // CTRL+C - CTRL+V from the tutorial... TODO : explain how this works
     @Override

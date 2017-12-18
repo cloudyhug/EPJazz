@@ -1,78 +1,47 @@
 package com.example.lin.epnetworktest.model;
 
+import android.net.wifi.p2p.WifiP2pInfo;
 import android.os.AsyncTask;
 import android.widget.TextView;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
+import java.net.InetSocketAddress;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
 /**
  * Created by lin on 04/12/17.
  */
 
 public class Client extends AsyncTask<Void, Void, Void> {
+    private TextView textView;
+    private WifiP2pInfo info;
+    private Socket socket;
 
-    String dstAddress;
-    int dstPort;
-    String response = "";
-    TextView textResponse;
-
-    Client(String addr, int port, TextView textResponse) {
-        dstAddress = addr;
-        dstPort = port;
-        this.textResponse = textResponse;
+    public Client(TextView textView, WifiP2pInfo info) {
+        this.textView = textView;
+        this.info = info;
     }
 
     @Override
     protected Void doInBackground(Void... arg0) {
-
-        Socket socket = null;
-
         try {
-            socket = new Socket(dstAddress, dstPort);
-
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(
-                    1024);
-            byte[] buffer = new byte[1024];
-
-            int bytesRead;
-            InputStream inputStream = socket.getInputStream();
-
-			/*
-             * notice: inputStream.read() will block if no data return
-			 */
-            while ((bytesRead = inputStream.read(buffer)) != -1) {
-                byteArrayOutputStream.write(buffer, 0, bytesRead);
-                response += byteArrayOutputStream.toString("UTF-8");
-            }
-
-        } catch (UnknownHostException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            response = "UnknownHostException: " + e.toString();
+            socket = new Socket();
+            socket.bind(null);
+            int retry = 10;
+            do {
+                socket.connect((new InetSocketAddress(info.groupOwnerAddress, 8000)), 500);
+                retry--;
+            } while (!socket.isConnected() && retry > 0);
+            // TODO : get data
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            response = "IOException: " + e.toString();
-        } finally {
-            if (socket != null) {
-                try {
-                    socket.close();
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            }
+            // TODO : manage error
         }
         return null;
     }
 
     @Override
     protected void onPostExecute(Void result) {
-        textResponse.setText(response);
+        // TODO : textView.setText(response);
         super.onPostExecute(result);
     }
 

@@ -8,12 +8,12 @@
         "source": "/home/lin/.android/build-cache/e1d19f0d46961f162289873c4b3c56fb4a87d2f6/output/res/layout/abc_select_dialog_material.xml"
     },
     {
-        "merged": "/home/lin/EPJazz/EPNetworkTest/app/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
-        "source": "/home/lin/.android/build-cache/e1d19f0d46961f162289873c4b3c56fb4a87d2f6/output/res/layout/abc_action_mode_close_item_material.xml"
-    },
-    {
         "merged": "/home/lin/EPJazz/EPNetworkTest/app/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
         "source": "/home/lin/.android/build-cache/e1d19f0d46961f162289873c4b3c56fb4a87d2f6/output/res/layout/abc_screen_content_include.xml"
+    },
+    {
+        "merged": "/home/lin/EPJazz/EPNetworkTest/app/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
+        "source": "/home/lin/.android/build-cache/e1d19f0d46961f162289873c4b3c56fb4a87d2f6/output/res/layout/abc_action_mode_close_item_material.xml"
     },
     {
         "merged": "/home/lin/EPJazz/EPNetworkTest/app/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",

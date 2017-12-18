@@ -3,10 +3,12 @@ package com.example.lin.epnetworktest.controller;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.net.wifi.p2p.WifiP2pConfig;
 import android.net.wifi.p2p.WifiP2pDevice;
 import android.net.wifi.p2p.WifiP2pDeviceList;
+import android.net.wifi.p2p.WifiP2pInfo;
 import android.net.wifi.p2p.WifiP2pManager;
 
 import com.example.lin.epnetworktest.model.Client;
@@ -29,7 +31,6 @@ public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
     private WifiP2pManager.ActionListener actionListenerDiscover;
     private WifiP2pManager.PeerListListener mPeerListListener;
     private ArrayList<String> mConnectedPeers;
-    private boolean isLeader;
     private boolean initDone;
     private Client client;
     private Server server;
@@ -80,13 +81,10 @@ public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
         // A list of the peers this device is connected to.
         mConnectedPeers = new ArrayList<>();
 
-        // For the moment we do not know if this device is the leader, so we set it to false.
-        isLeader = false;
-
         // The init method has never been called yet.
         initDone = false;
 
-        // PeerListListener : to decide what to do when
+        // PeerListListener : to decide what to do when a discovery starts.
         mPeerListListener = new WifiP2pManager.PeerListListener() {
 
             // This method is called everytime we request a peer list from
@@ -106,15 +104,26 @@ public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
         // Sockets are not initialised yet.
         client = null;
         server = null;
+
+        // Start the peer discovery
+
     }
 
     // This method determines if the terminal is going to be a client or the server.
     public void init(WifiP2pDeviceList peers) {
+        if (activity.getConnectionInfo().isGroupOwner) {
+            server = new Server(activity.getText());
+            server.execute();
+        } else {
+            client = new Client(activity.getText(), activity.getConnectionInfo());
+            client.execute();
+        }
+
+        /*
         if (peers.getDeviceList().size() == 0) {
             // No peers were found on the network yet, so this device becomes the leader.
             isLeader = true;
             server = new Server(); // TODO : add the correct arguments to the constructor
-            return;
         } else {
             // Peers were found on the network. We need to check whether a device has
             // become the leader, or if there is no leader yet.
@@ -122,6 +131,13 @@ public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
                 // TODO : ask each device if it is the leader (how ?)
             }
         }
+        */
+    }
+
+    // Called by the button on the main activity to start the song.
+    public void start() {
+        // TODO : actually write what the method does
+        mManager.discoverPeers(mChannel, actionListenerDiscover);
     }
 
     // Checks the available P2P connections in the peer list.
@@ -138,10 +154,6 @@ public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
                 mConnectedPeers.add(device.deviceAddress);
             }
         }
-    }
-
-    public void discover() {
-        mManager.discoverPeers(mChannel, actionListenerDiscover);
     }
 
     // Any Wifi P2P event will call this method.
@@ -180,9 +192,30 @@ public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
 
         } else if (WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION.equals(action)) {
 
-            // Connection state changed!  We should probably do something about
-            // that.
-            // TODO : identify what actually happened in order to get us here
+            // Connection state changed -> modifying the activity's info attribute.
+
+            if (mManager == null)
+                return;
+
+            NetworkInfo networkInfo = (NetworkInfo) intent.getParcelableExtra(WifiP2pManager.EXTRA_NETWORK_INFO);
+
+            if (networkInfo.isConnected()) {
+                mManager.requestConnectionInfo(mChannel,
+                        new WifiP2pManager.ConnectionInfoListener() {
+
+                            @Override
+                            public void onConnectionInfoAvailable(
+                                    WifiP2pInfo info) {
+                                if (info != null) {
+                                    activity.setConnectionInfo(info); // When connection is established with other device, We can find that info from wifiP2pInfo here.
+                                }
+                            }
+                        }
+
+                );
+            } else {
+                activity.resetData(); // When connection lost then we can reset data about that connection.
+            }
 
         } else if (WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION.equals(action)) {
             // TODO : identify what actually happened in order to get us here
