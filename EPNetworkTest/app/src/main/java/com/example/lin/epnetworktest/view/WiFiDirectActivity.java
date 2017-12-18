@@ -1,18 +1,16 @@
-package com.example.lin.epnetworktest;
+package com.example.lin.epnetworktest.view;
 
 import android.content.Context;
 import android.content.IntentFilter;
-import android.net.wifi.p2p.WifiP2pDevice;
-import android.net.wifi.p2p.WifiP2pDeviceList;
+import android.net.wifi.WifiManager;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ToggleButton;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.lin.epnetworktest.R;
+import com.example.lin.epnetworktest.controller.WiFiDirectBroadcastReceiver;
 
 public class WiFiDirectActivity extends AppCompatActivity {
 
@@ -24,12 +22,9 @@ public class WiFiDirectActivity extends AppCompatActivity {
 
     private WiFiDirectBroadcastReceiver mReceiver;
 
-    private boolean isWifiP2pEnabled;
-
-    private ToggleButton isLeader;
-
     private Button startButton;
 
+    // First method being called, at the creation of the activity.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,38 +44,24 @@ public class WiFiDirectActivity extends AppCompatActivity {
         // Indicates this device's details have changed.
         mIntentFilter.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
 
+        // Make sure Wifi is enabled on the Android terminal.
+        WifiManager wifiManager  = (WifiManager)this.getApplicationContext().getSystemService(this.WIFI_SERVICE);
+        wifiManager.setWifiEnabled(true);
+
         this.mManager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
         this.mChannel = mManager.initialize(this, getMainLooper(), null);
         this.mReceiver = new WiFiDirectBroadcastReceiver(mManager, mChannel, this);
 
-        this.isLeader = (ToggleButton) findViewById(R.id.isleader);
         this.startButton = (Button) findViewById(R.id.startbutton);
-
-        System.out.println("App created successfully");
     }
 
     // Called everytime the start button is pressed.
     public void startP2p(View v) {
-        System.out.println("P2P started successfully");
-        mManager.discoverPeers(mChannel, new WifiP2pManager.ActionListener() {
-
-            @Override
-            public void onSuccess() {
-                // Code for when the discovery initiation is successful goes here.
-                // No services have actually been discovered yet, so this method
-                // can often be left blank.  Code for peer discovery goes in the
-                // onReceive method, detailed below.
-            }
-
-            @Override
-            public void onFailure(int reasonCode) {
-                // Code for when the discovery initiation fails goes here.
-                // Alert the user that something went wrong.
-            }
-        });
+        // TODO :
+        mReceiver.discover();
     }
 
-    /** register the BroadcastReceiver with the intent values to be matched */
+    // CTRL+C - CTRL+V from the tutorial... TODO : explain how this works
     @Override
     public void onResume() {
         super.onResume();
@@ -91,9 +72,5 @@ public class WiFiDirectActivity extends AppCompatActivity {
     public void onPause() {
         super.onPause();
         unregisterReceiver(mReceiver);
-    }
-
-    public void setIsWifiP2pEnabled(boolean enabled) {
-        this.isWifiP2pEnabled = enabled;
     }
 }
