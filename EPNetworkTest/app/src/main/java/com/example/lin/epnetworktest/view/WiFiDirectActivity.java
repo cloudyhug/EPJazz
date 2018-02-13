@@ -3,6 +3,7 @@ package com.example.lin.epnetworktest.view;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.net.wifi.WifiManager;
+import android.net.wifi.p2p.WifiP2pConfig;
 import android.net.wifi.p2p.WifiP2pInfo;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,10 @@ import android.widget.TextView;
 
 import com.example.lin.epnetworktest.R;
 import com.example.lin.epnetworktest.controller.WiFiDirectBroadcastReceiver;
+import com.example.lin.epnetworktest.model.StartSongTask;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class WiFiDirectActivity extends AppCompatActivity {
 
@@ -24,7 +29,7 @@ public class WiFiDirectActivity extends AppCompatActivity {
 
     private WiFiDirectBroadcastReceiver mReceiver;
 
-    private WifiP2pInfo info;
+    private List<String> mConnectedPeers;
 
     private Button startButton;
 
@@ -35,6 +40,19 @@ public class WiFiDirectActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Make sure Wifi is enabled on the Android terminal.
+        WifiManager wifiManager  = (WifiManager)this.getApplicationContext().getSystemService(this.WIFI_SERVICE);
+        wifiManager.setWifiEnabled(true);
+
+        // TODO : call NTP methods ?
+
+        this.mManager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
+        this.mChannel = mManager.initialize(this, getMainLooper(), null);
+
+        mConnectedPeers = new ArrayList<>();
+
+        this.mReceiver = new WiFiDirectBroadcastReceiver(mManager, mChannel, this);
 
         mIntentFilter = new IntentFilter();
 
@@ -50,33 +68,31 @@ public class WiFiDirectActivity extends AppCompatActivity {
         // Indicates this device's details have changed.
         mIntentFilter.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
 
-        // Make sure Wifi is enabled on the Android terminal.
-        WifiManager wifiManager  = (WifiManager)this.getApplicationContext().getSystemService(this.WIFI_SERVICE);
-        wifiManager.setWifiEnabled(true);
-
-        this.mManager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
-        this.mChannel = mManager.initialize(this, getMainLooper(), null);
-        this.mReceiver = new WiFiDirectBroadcastReceiver(mManager, mChannel, this);
-
         this.startButton = (Button) findViewById(R.id.startbutton);
         this.text = (TextView) findViewById(R.id.text);
+
+        // Launch the discovery
+        mManager.discoverPeers(mChannel, new WifiP2pManager.ActionListener() {
+            @Override
+            public void onSuccess() {
+                // if the discovery process detects peers, the system broadcasts the WIFI_P2P_PEERS_CHANGED_ACTION intent
+            }
+
+            @Override
+            public void onFailure(int reasonCode) {
+
+            }
+        });
     }
 
-    // Called everytime the start button is pressed.
-    public void startButtonPressed(View v) {
-        mReceiver.start();
+    public List<String> getConnectedPeers() {
+        return mConnectedPeers;
     }
 
-    public void setConnectionInfo(WifiP2pInfo info) {
-        this.info = info;
-    }
-
-    public WifiP2pInfo getConnectionInfo() {
-        return info;
-    }
-
-    public void resetData() {
-        this.info = null;
+    public void startButtonPressed() {
+        for (String address : mConnectedPeers) {
+            new StartSongTask().execute(); // TODO : thread
+        }
     }
 
     public TextView getText() { return text; }
