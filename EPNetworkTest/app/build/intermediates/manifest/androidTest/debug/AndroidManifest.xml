@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.lin.epnetworktest.test" >
+    package="ep.net.test" >
 
     <uses-sdk
         android:minSdkVersion="21"
@@ -10,8 +10,8 @@
         android:name="android.support.test.runner.AndroidJUnitRunner"
         android:functionalTest="false"
         android:handleProfiling="false"
-        android:label="Tests for com.example.lin.epnetworktest"
-        android:targetPackage="com.example.lin.epnetworktest" />
+        android:label="Tests for ep.net"
+        android:targetPackage="ep.net" />
 
     <application android:debuggable="true" >
         <uses-library android:name="android.test.runner" />
