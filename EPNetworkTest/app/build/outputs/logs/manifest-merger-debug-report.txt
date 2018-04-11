@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:2:1-21:12
-INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:2:1-21:12
-INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:2:1-21:12
-INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:2:1-21:12
+ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:2:1-40:12
+INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:2:1-40:12
+INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:2:1-40:12
+INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:2:1-40:12
 MERGED from [com.android.support:appcompat-v7:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/391f653865c1a8a271e223e4a09c6716/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/lin/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/f721fc2ca23e23523ff9d4fe5c7f6617/AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:animated-vector-drawable:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/c9c5f16333e83c01c79a1a7aa393e214/AndroidManifest.xml:17:1-28:12
@@ -15,25 +15,97 @@ MERGED from [com.android.support:support-core-utils:26.1.0] /home/lin/.gradle/ca
 MERGED from [com.android.support:support-core-ui:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/f9b3bc30aa7807aeee5db671a77b3b33/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/6529a29b5fb96e6bfb8557e8e1f9fddc/AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] /home/lin/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/0ea917a2f421db4b1ab146e95ff40a82/AndroidManifest.xml:17:1-30:12
-INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:2:1-21:12
-INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:2:1-21:12
-INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:2:1-40:12
+INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:2:1-40:12
+INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:2:1-40:12
 	package
 		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:3:5-21
 		INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
 		INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
-		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:2:1-21:12
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:2:1-40:12
 		INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
-		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:2:1-21:12
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:2:1-40:12
 		INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:2:11-69
+uses-sdk
+ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:5:5-44
+INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:5:5-44
+INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:appcompat-v7:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/391f653865c1a8a271e223e4a09c6716/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/391f653865c1a8a271e223e4a09c6716/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/lin/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/f721fc2ca23e23523ff9d4fe5c7f6617/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/lin/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/f721fc2ca23e23523ff9d4fe5c7f6617/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/c9c5f16333e83c01c79a1a7aa393e214/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/c9c5f16333e83c01c79a1a7aa393e214/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/dbc8ace3e95482792563a194f55a4cfd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/dbc8ace3e95482792563a194f55a4cfd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/821a446b9a4aba08df4c7957db55b09e/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/821a446b9a4aba08df4c7957db55b09e/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/123a987de23e7c6ba1cdf1cf559fbd6f/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/123a987de23e7c6ba1cdf1cf559fbd6f/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/6b47bf85274177477b6f9ca96cb2a17f/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/6b47bf85274177477b6f9ca96cb2a17f/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-utils:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/43900b02f21ae8a9629fd9eef7171ffc/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/43900b02f21ae8a9629fd9eef7171ffc/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/f9b3bc30aa7807aeee5db671a77b3b33/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/f9b3bc30aa7807aeee5db671a77b3b33/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/6529a29b5fb96e6bfb8557e8e1f9fddc/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/6529a29b5fb96e6bfb8557e8e1f9fddc/AndroidManifest.xml:21:5-23:58
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /home/lin/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/0ea917a2f421db4b1ab146e95ff40a82/AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /home/lin/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/0ea917a2f421db4b1ab146e95ff40a82/AndroidManifest.xml:20:5-22:41
+INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:5:5-44
+INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:5:5-44
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/391f653865c1a8a271e223e4a09c6716/AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:5:5-44
+		INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:5:15-41
+		INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
+		INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:6:5-76
+	android:name
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:6:22-73
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:7:5-76
+	android:name
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:7:22-73
+uses-permission#android.permission.CHANGE_NETWORK_STATE
+ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:8:5-79
+	android:name
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:8:22-76
+uses-permission#android.permission.INTERNET
+ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:9:5-67
+	android:name
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:9:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:10:5-79
+	android:name
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:10:22-76
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:11:5-75
+	android:name
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:11:22-72
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:12:5-81
+	android:name
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:12:22-78
+uses-feature#android.hardware.wifi.direct
+ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:15:5-88
+	android:required
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:15:63-86
+	android:name
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:15:19-62
 application
-ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:5:5-19:19
+ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:17:5-38:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/391f653865c1a8a271e223e4a09c6716/AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/391f653865c1a8a271e223e4a09c6716/AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/lin/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/f721fc2ca23e23523ff9d4fe5c7f6617/AndroidManifest.xml:9:5-20
@@ -57,69 +129,45 @@ MERGED from [com.android.support:support-compat:26.1.0] /home/lin/.gradle/caches
 MERGED from [android.arch.lifecycle:runtime:1.0.0] /home/lin/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/0ea917a2f421db4b1ab146e95ff40a82/AndroidManifest.xml:24:5-28:19
 MERGED from [android.arch.lifecycle:runtime:1.0.0] /home/lin/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/0ea917a2f421db4b1ab146e95ff40a82/AndroidManifest.xml:24:5-28:19
 	android:supportsRtl
-		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:10:9-35
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:22:9-35
 	android:label
-		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:8:9-41
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:20:9-41
 	android:roundIcon
-		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:9:9-54
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:21:9-54
 	android:icon
-		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:7:9-43
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:19:9-43
 	android:allowBackup
-		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:6:9-35
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:18:9-35
 	android:theme
-		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:11:9-40
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:23:9-40
 activity#ep.net.MainActivity
-ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:12:9-18:20
+ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:24:9-30:20
 	android:name
-		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:12:19-47
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:24:19-47
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:13:13-17:29
+ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:25:13-29:29
 action#android.intent.action.MAIN
-ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:14:17-69
+ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:26:17-69
 	android:name
-		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:14:25-66
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:26:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:16:17-77
+ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:28:17-77
 	android:name
-		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:16:27-74
-uses-sdk
-INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
-INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
-MERGED from [com.android.support:appcompat-v7:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/391f653865c1a8a271e223e4a09c6716/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:appcompat-v7:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/391f653865c1a8a271e223e4a09c6716/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/lin/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/f721fc2ca23e23523ff9d4fe5c7f6617/AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/lin/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/f721fc2ca23e23523ff9d4fe5c7f6617/AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/c9c5f16333e83c01c79a1a7aa393e214/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/c9c5f16333e83c01c79a1a7aa393e214/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/dbc8ace3e95482792563a194f55a4cfd/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/dbc8ace3e95482792563a194f55a4cfd/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/821a446b9a4aba08df4c7957db55b09e/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-v4:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/821a446b9a4aba08df4c7957db55b09e/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-media-compat:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/123a987de23e7c6ba1cdf1cf559fbd6f/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-media-compat:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/123a987de23e7c6ba1cdf1cf559fbd6f/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-fragment:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/6b47bf85274177477b6f9ca96cb2a17f/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-fragment:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/6b47bf85274177477b6f9ca96cb2a17f/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-core-utils:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/43900b02f21ae8a9629fd9eef7171ffc/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-utils:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/43900b02f21ae8a9629fd9eef7171ffc/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-ui:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/f9b3bc30aa7807aeee5db671a77b3b33/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/f9b3bc30aa7807aeee5db671a77b3b33/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/6529a29b5fb96e6bfb8557e8e1f9fddc/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/6529a29b5fb96e6bfb8557e8e1f9fddc/AndroidManifest.xml:21:5-23:58
-MERGED from [android.arch.lifecycle:runtime:1.0.0] /home/lin/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/0ea917a2f421db4b1ab146e95ff40a82/AndroidManifest.xml:20:5-22:41
-MERGED from [android.arch.lifecycle:runtime:1.0.0] /home/lin/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/0ea917a2f421db4b1ab146e95ff40a82/AndroidManifest.xml:20:5-22:41
-INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
-INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
-	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/391f653865c1a8a271e223e4a09c6716/AndroidManifest.xml:23:9-75
-	android:targetSdkVersion
-		INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
-		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
-		INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
-	android:minSdkVersion
-		INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
-		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
-		INJECTED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:28:27-74
+activity#ep.net.WiFiDirectActivity
+ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:31:9-37:20
+	android:name
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:31:19-53
+intent-filter#android.intent.category.DEFAULT+ep.net.WiFiDirectActivity
+ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:32:13-36:29
+action#ep.net.WiFiDirectActivity
+ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:33:17-68
+	android:name
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:33:25-65
+category#android.intent.category.DEFAULT
+ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:35:17-76
+	android:name
+		ADDED from /home/lin/EPJazz/EPNetworkTest/app/src/main/AndroidManifest.xml:35:27-73
 meta-data#android.support.VERSION
 ADDED from [com.android.support:appcompat-v7:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/391f653865c1a8a271e223e4a09c6716/AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:animated-vector-drawable:26.1.0] /home/lin/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/c9c5f16333e83c01c79a1a7aa393e214/AndroidManifest.xml:23:9-25:38

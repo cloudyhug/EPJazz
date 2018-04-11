@@ -60,7 +60,7 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
 
     private Button getFilenameButton;
 
-    private ClientAsyncTask clientAsyncTask;
+    private WiFiDirectActivity activity;
 
     public void setIsWifiP2pEnabled(boolean isWifiP2pEnabled) {
         this.isWifiP2pEnabled = isWifiP2pEnabled;
@@ -91,12 +91,12 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
         getFilenameButton = findViewById(R.id.get_filename_button);
         getFilenameButton.setEnabled(false);
 
-        clientAsyncTask = new ClientAsyncTask(this, connectionInfoListener.getInfo().groupOwnerAddress);
+        activity = this;
 
         getFilenameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clientAsyncTask.execute();
+                new ClientAsyncTask(activity, connectionInfoListener.getInfo().groupOwnerAddress).execute();
             }
         });
 
