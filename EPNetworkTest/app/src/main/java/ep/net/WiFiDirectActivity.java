@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.IntentFilter;
+import android.net.wifi.WpsInfo;
 import android.net.wifi.p2p.WifiP2pConfig;
 import android.net.wifi.p2p.WifiP2pDevice;
 import android.net.wifi.p2p.WifiP2pInfo;
@@ -59,6 +60,8 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
     private DeviceConnectionInfoListener connectionInfoListener;
 
     private Button getFilenameButton;
+    private Button connectButton;
+    private Button disconnectButton;
 
     private WiFiDirectActivity activity;
 
@@ -91,12 +94,34 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
         getFilenameButton = findViewById(R.id.get_filename_button);
         getFilenameButton.setEnabled(false);
 
+        connectButton = findViewById(R.id.connect_button);
+        disconnectButton = findViewById(R.id.disconnect_button);
+
         activity = this;
 
         getFilenameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new ClientAsyncTask(activity, connectionInfoListener.getInfo().groupOwnerAddress).execute();
+            }
+        });
+
+        connectButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (WifiP2pDevice d : deviceListListener.getPeers()) {
+                    WifiP2pConfig config = new WifiP2pConfig();
+                    config.deviceAddress = d.deviceAddress;
+                    config.wps.setup = WpsInfo.PBC;
+                    connect(config);
+                }
+            }
+        });
+
+        disconnectButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                disconnect();
             }
         });
 
@@ -137,7 +162,6 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
         if (!isWifiP2pEnabled) {
             Toast.makeText(WiFiDirectActivity.this, "Warning : Wifi P2P disabled",
                     Toast.LENGTH_SHORT).show();
-            return;
         }
         manager.discoverPeers(channel, new WifiP2pManager.ActionListener() {
 
@@ -171,7 +195,7 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
         });
     }
 
-    /*public void disconnect() {
+    public void disconnect() {
         // empty the displayed peer list
         // ...
 
@@ -189,7 +213,7 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
             }
 
         });
-    }*/
+    }
 
     @Override
     public void onChannelDisconnected() {

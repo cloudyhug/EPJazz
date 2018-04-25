@@ -21,19 +21,6 @@ public class DeviceConnectionInfoListener implements ConnectionInfoListener {
         return info;
     }
 
-    // fonction ou bouton disconnect -> activity.disconnect()
-    // fonction connect
-    /*
-    {
-        WifiP2pConfig config = new WifiP2pConfig();
-        config.deviceAddress = device.deviceAddress;
-        config.wps.setup = WpsInfo.PBC;
-        // print connecting to + device address
-        // ...
-
-        activity.connect(config);
-    }*/
-
     @Override
     public void onConnectionInfoAvailable(final WifiP2pInfo info) {
         // The owner IP is now known.
