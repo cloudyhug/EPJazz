@@ -23,9 +23,7 @@ import android.content.IntentFilter;
 import android.net.wifi.WpsInfo;
 import android.net.wifi.p2p.WifiP2pConfig;
 import android.net.wifi.p2p.WifiP2pDevice;
-import android.net.wifi.p2p.WifiP2pInfo;
 import android.net.wifi.p2p.WifiP2pManager;
-import android.net.wifi.p2p.WifiP2pManager.PeerListListener;
 import android.net.wifi.p2p.WifiP2pManager.ConnectionInfoListener;
 import android.net.wifi.p2p.WifiP2pManager.ActionListener;
 import android.net.wifi.p2p.WifiP2pManager.Channel;
@@ -36,8 +34,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import ep.net.R;
-
 /**
  * An activity that uses WiFi Direct APIs to discover and connect with available
  * devices. WiFi Direct APIs are asynchronous and rely on callback mechanism
@@ -46,15 +42,15 @@ import ep.net.R;
  * WiFi state related events.
  */
 public class WiFiDirectActivity extends Activity implements ChannelListener {
+    private WifiP2pManager mManager;
+    private Channel mChannel;
+    private BroadcastReceiver mReceiver = null;
 
-    public static final String TAG = "wifidirectdemo";
-    private WifiP2pManager manager;
     private boolean isWifiP2pEnabled = false;
     private boolean retryChannel = false;
 
     private final IntentFilter intentFilter = new IntentFilter();
-    private Channel channel;
-    private BroadcastReceiver receiver = null;
+
 
     private DeviceListListener deviceListListener;
     private DeviceConnectionInfoListener connectionInfoListener;
@@ -79,20 +75,24 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
         setContentView(R.layout.wifi_direct_activity);
 
         // add necessary intent values to be matched.
+        mManager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
+        mChannel = mManager.initialize(this, getMainLooper(), null);
+        mReceiver = new WiFiDirectBroadcastReceiver(mManager, mChannel, this);
 
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION);
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION);
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION);
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
 
-        manager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
-        channel = manager.initialize(this, getMainLooper(), null);
+        // TODO : enlever filename, connect, disconnect. Peut-etre simplifier en enlevant les 2 classes
+        // TODO : DeviceListListener et DeviceConnectionInfoListener ? ou en les incluant dans cette classe
 
         deviceListListener = new DeviceListListener();
         connectionInfoListener = new DeviceConnectionInfoListener(this);
 
+
         getFilenameButton = findViewById(R.id.get_filename_button);
-        getFilenameButton.setEnabled(false);
+        //getFilenameButton.setEnabled(false);
 
         connectButton = findViewById(R.id.connect_button);
         disconnectButton = findViewById(R.id.disconnect_button);
@@ -140,14 +140,14 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
     @Override
     public void onResume() {
         super.onResume();
-        receiver = new WiFiDirectBroadcastReceiver(manager, channel, this);
-        registerReceiver(receiver, intentFilter);
+        mReceiver = new WiFiDirectBroadcastReceiver(mManager, mChannel, this);
+        registerReceiver(mReceiver, intentFilter);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        unregisterReceiver(receiver);
+        unregisterReceiver(mReceiver);
     }
 
     /**
@@ -163,7 +163,7 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
             Toast.makeText(WiFiDirectActivity.this, "Warning : Wifi P2P disabled",
                     Toast.LENGTH_SHORT).show();
         }
-        manager.discoverPeers(channel, new WifiP2pManager.ActionListener() {
+        mManager.discoverPeers(mChannel, new WifiP2pManager.ActionListener() {
 
             @Override
             public void onSuccess() {
@@ -180,7 +180,7 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
     }
 
     public void connect(WifiP2pConfig config) {
-        manager.connect(channel, config, new ActionListener() {
+        mManager.connect(mChannel, config, new ActionListener() {
 
             @Override
             public void onSuccess() {
@@ -199,11 +199,10 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
         // empty the displayed peer list
         // ...
 
-        manager.removeGroup(channel, new ActionListener() {
+        mManager.removeGroup(mChannel, new ActionListener() {
 
             @Override
             public void onFailure(int reasonCode) {
-                Log.d(TAG, "Disconnect failed. Reason :" + reasonCode);
 
             }
 
@@ -218,11 +217,11 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
     @Override
     public void onChannelDisconnected() {
         // we will try once more
-        if (manager != null && !retryChannel) {
+        if (mManager != null && !retryChannel) {
             Toast.makeText(this, "Channel lost. Trying again", Toast.LENGTH_LONG).show();
             resetData();
             retryChannel = true;
-            manager.initialize(this, getMainLooper(), this);
+            mManager.initialize(this, getMainLooper(), this);
         } else {
             Toast.makeText(this,
                     "Severe! Channel is probably lost premanently. Try Disable/Re-Enable P2P.",

@@ -52,7 +52,7 @@ public class ClientAsyncTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String filename) {
-        CommonUtilities.filename = filename;
+        CommonUtilities.filename = filename + "test";
         activity.finish();
     }
 }

@@ -13,11 +13,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        CommonUtilities.filename = "examplefilename";
-
         filetext = findViewById(R.id.filetext);
-
-        filetext.setText(CommonUtilities.filename);
 
         Intent intent = new Intent(this, WiFiDirectActivity.class);
         startActivityForResult(intent, 0);
@@ -25,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        filetext.setText(CommonUtilities.filename);
+        filetext.setText("");
     }
 
 }

@@ -20,8 +20,6 @@ public class DeviceListListener implements PeerListListener {
     public void onPeersAvailable(WifiP2pDeviceList peerList) {
         peers.clear();
         peers.addAll(peerList.getDeviceList());
-        if (peers.size() == 0)
-            Log.d(WiFiDirectActivity.TAG, "No devices found");
     }
 
     public List<WifiP2pDevice> getPeers() {
