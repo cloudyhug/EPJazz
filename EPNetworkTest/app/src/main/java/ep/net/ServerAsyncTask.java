@@ -26,7 +26,6 @@ public class ServerAsyncTask extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... args) {
         try {
             ServerSocket serverSocket = new ServerSocket(42042);
-            Log.d(WiFiDirectActivity.TAG, "Server: Socket opened");
             while (true) {
                 Socket socket = serverSocket.accept();
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -41,7 +40,6 @@ public class ServerAsyncTask extends AsyncTask<Void, Void, Void> {
                 socket.close();
             }
         } catch (IOException e) {
-            Log.e(WiFiDirectActivity.TAG, e.getMessage());
         }
         return null;
     }

@@ -5,6 +5,7 @@ import android.net.wifi.p2p.WifiP2pDeviceList;
 import android.net.wifi.p2p.WifiP2pInfo;
 import android.net.wifi.p2p.WifiP2pManager.ConnectionInfoListener;
 import android.util.Log;
+import android.widget.Toast;
 
 public class DeviceConnectionInfoListener implements ConnectionInfoListener {
     private WiFiDirectActivity activity;
@@ -31,9 +32,11 @@ public class DeviceConnectionInfoListener implements ConnectionInfoListener {
         // socket.
         if (info.groupFormed && info.isGroupOwner && !serverStarted) {
             // TODO : changer ServerAsyncTask pour donner (t, t_depart) au lieu d'un filename
+            Log.d("tag", ">>>>>>>>> we are the leader");
             new ServerAsyncTask("filename").execute();
             serverStarted = true;
         } else if (info.groupFormed) {
+            Log.d("tag", ">>>>>>>>> we are not the leader");
             // The other device acts as the client. In this case, we enable the
             // get file button.
             // TODO : changer bouton pour récupérer (t, t_depart)

@@ -109,12 +109,11 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
         connectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (WifiP2pDevice d : deviceListListener.getPeers()) {
-                    WifiP2pConfig config = new WifiP2pConfig();
-                    config.deviceAddress = d.deviceAddress;
-                    config.wps.setup = WpsInfo.PBC;
-                    connect(config);
-                }
+                WifiP2pDevice d = deviceListListener.getPeers().get(0);
+                WifiP2pConfig config = new WifiP2pConfig();
+                config.deviceAddress = d.deviceAddress;
+                config.wps.setup = WpsInfo.PBC;
+                connect(config);
             }
         });
 
@@ -125,7 +124,24 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
             }
         });
 
-        startDiscovery();
+        if (!isWifiP2pEnabled) {
+            Toast.makeText(WiFiDirectActivity.this, "Warning : Wifi P2P disabled",
+                    Toast.LENGTH_SHORT).show();
+        }
+        mManager.discoverPeers(mChannel, new WifiP2pManager.ActionListener() {
+
+            @Override
+            public void onSuccess() {
+                Toast.makeText(WiFiDirectActivity.this, "Discovery Initiated",
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(int reasonCode) {
+                Toast.makeText(WiFiDirectActivity.this, "Discovery Failed : " + reasonCode,
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public DeviceListListener getDeviceListListener() {
@@ -156,27 +172,6 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
      */
     public void resetData() {
         deviceListListener.clearPeers();
-    }
-
-    public void startDiscovery() {
-        if (!isWifiP2pEnabled) {
-            Toast.makeText(WiFiDirectActivity.this, "Warning : Wifi P2P disabled",
-                    Toast.LENGTH_SHORT).show();
-        }
-        mManager.discoverPeers(mChannel, new WifiP2pManager.ActionListener() {
-
-            @Override
-            public void onSuccess() {
-                Toast.makeText(WiFiDirectActivity.this, "Discovery Initiated",
-                        Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onFailure(int reasonCode) {
-                Toast.makeText(WiFiDirectActivity.this, "Discovery Failed : " + reasonCode,
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     public void connect(WifiP2pConfig config) {

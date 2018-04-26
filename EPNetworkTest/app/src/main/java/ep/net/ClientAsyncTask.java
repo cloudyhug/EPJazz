@@ -45,14 +45,12 @@ public class ClientAsyncTask extends AsyncTask<Void, Void, String> {
             }
             socket.close();
         } catch (IOException e) {
-            Log.e(WiFiDirectActivity.TAG, e.getMessage());
         }
         return null;
     }
 
     @Override
     protected void onPostExecute(String filename) {
-        CommonUtilities.filename = filename + "test";
         activity.finish();
     }
 }
