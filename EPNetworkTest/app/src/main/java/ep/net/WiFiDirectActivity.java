@@ -75,6 +75,10 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
         terminateServerButton.setEnabled(enabled);
     }
 
+    public void setIsGetTimeButtonEnabled(boolean enabled){
+        getTimeButton.setEnabled(enabled);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

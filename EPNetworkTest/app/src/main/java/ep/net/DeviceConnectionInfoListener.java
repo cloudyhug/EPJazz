@@ -35,6 +35,7 @@ public class DeviceConnectionInfoListener implements ConnectionInfoListener {
             activity.setTime(time);
             activity.setStartingTime(startingTime);
             activity.setIsTerminateServerButtonEnabled(true);
+            activity.setIsGetTimeButtonEnabled(false);
             new ServerAsyncTask(time, startingTime).execute();
             serverStarted = true;
         } else if (info.groupFormed) {
