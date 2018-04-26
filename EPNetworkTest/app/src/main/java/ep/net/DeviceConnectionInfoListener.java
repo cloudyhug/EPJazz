@@ -27,20 +27,19 @@ public class DeviceConnectionInfoListener implements ConnectionInfoListener {
         // The owner IP is now known.
         this.info = info;
 
-        // After the group negotiation, we assign the group owner as the file
-        // server. The file server is single threaded, single connection server
-        // socket.
+        // After the group negotiation, we assign the group owner as the server.
         if (info.groupFormed && info.isGroupOwner && !serverStarted) {
-            // TODO : changer ServerAsyncTask pour donner (t, t_depart) au lieu d'un filename
-            Log.d("tag", ">>>>>>>>> we are the leader");
-            new ServerAsyncTask("filename").execute();
+            activity.setDebugText("we are leader");
+            long time = System.currentTimeMillis();
+            long startingTime = time + 15000;
+            activity.setTime(time);
+            activity.setStartingTime(startingTime);
+            activity.setIsTerminateServerButtonEnabled(true);
+            new ServerAsyncTask(time, startingTime).execute();
             serverStarted = true;
         } else if (info.groupFormed) {
-            Log.d("tag", ">>>>>>>>> we are not the leader");
-            // The other device acts as the client. In this case, we enable the
-            // get file button.
-            // TODO : changer bouton pour récupérer (t, t_depart)
-            activity.enableGetFilenameButton();
+            activity.setDebugText("we are not leader");
+            // The other device acts as the client
         }
     }
 }

@@ -16,10 +16,12 @@ import java.net.Socket;
  */
 
 public class ServerAsyncTask extends AsyncTask<Void, Void, Void> {
-    private String filename;
+    private long time;
+    private long startingTime;
 
-    public ServerAsyncTask(String filename) {
-        this.filename = filename;
+    public ServerAsyncTask(long t, long st) {
+        time = t;
+        startingTime = st;
     }
 
     @Override
@@ -31,9 +33,8 @@ public class ServerAsyncTask extends AsyncTask<Void, Void, Void> {
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 PrintStream out = new PrintStream(socket.getOutputStream());
                 for (String inputLine; (inputLine = in.readLine()) != null; ) {
-                    if (inputLine.equals("file?")) {
-                        out.println("file:aftersendingfilename");
-                        // "file:" + filename
+                    if (inputLine.equals("time?")) {
+                        out.println("time:" + time + " " + startingTime);
                         out.flush();
                     }
                 }

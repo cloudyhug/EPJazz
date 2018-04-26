@@ -36,11 +36,11 @@ public class ClientAsyncTask extends AsyncTask<Void, Void, String> {
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintStream out = new PrintStream(socket.getOutputStream());
 
-            out.println("file?");
+            out.println("time?");
             out.flush();
 
             for (String inputLine; (inputLine = in.readLine()) != null; ) {
-                if (inputLine.startsWith("file:"))
+                if (inputLine.startsWith("time:"))
                     return inputLine.substring(5);
             }
             socket.close();
@@ -50,7 +50,8 @@ public class ClientAsyncTask extends AsyncTask<Void, Void, String> {
     }
 
     @Override
-    protected void onPostExecute(String filename) {
-        activity.finish();
+    protected void onPostExecute(String result) {
+        String[] times = result.split(" ");
+        activity.terminate(Long.valueOf(times[0]), Long.valueOf(times[1]));
     }
 }

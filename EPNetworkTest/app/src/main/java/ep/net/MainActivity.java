@@ -21,7 +21,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        filetext.setText("");
+        if (requestCode == 0) {
+            if (resultCode == RESULT_OK) {
+                long t = data.getLongExtra("time", -1);
+                long st = data.getLongExtra("startingTime", -1);
+                filetext.setText("" + t + " & " + st);
+            }
+        }
     }
 
 }

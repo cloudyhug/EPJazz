@@ -19,6 +19,7 @@ package ep.net;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.wifi.WpsInfo;
 import android.net.wifi.p2p.WifiP2pConfig;
@@ -32,6 +33,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -46,18 +48,22 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
     private Channel mChannel;
     private BroadcastReceiver mReceiver = null;
 
+    private TextView tv;
+
     private boolean isWifiP2pEnabled = false;
     private boolean retryChannel = false;
 
     private final IntentFilter intentFilter = new IntentFilter();
 
-
     private DeviceListListener deviceListListener;
     private DeviceConnectionInfoListener connectionInfoListener;
 
-    private Button getFilenameButton;
+    private Button getTimeButton;
     private Button connectButton;
-    private Button disconnectButton;
+    private Button terminateServerButton;
+
+    private long time;
+    private long startingTime;
 
     private WiFiDirectActivity activity;
 
@@ -65,8 +71,8 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
         this.isWifiP2pEnabled = isWifiP2pEnabled;
     }
 
-    public void enableGetFilenameButton() {
-            getFilenameButton.setEnabled(true);
+    public void setIsTerminateServerButtonEnabled(boolean enabled){
+        terminateServerButton.setEnabled(enabled);
     }
 
     @Override
@@ -84,27 +90,20 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION);
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
 
-        // TODO : enlever filename, connect, disconnect. Peut-etre simplifier en enlevant les 2 classes
-        // TODO : DeviceListListener et DeviceConnectionInfoListener ? ou en les incluant dans cette classe
+        tv = findViewById(R.id.textView);
 
         deviceListListener = new DeviceListListener();
         connectionInfoListener = new DeviceConnectionInfoListener(this);
 
-
-        getFilenameButton = findViewById(R.id.get_filename_button);
-        //getFilenameButton.setEnabled(false);
-
         connectButton = findViewById(R.id.connect_button);
-        disconnectButton = findViewById(R.id.disconnect_button);
+        getTimeButton = findViewById(R.id.get_time_button);
+        terminateServerButton = findViewById(R.id.terminate_button);
+        terminateServerButton.setEnabled(false);
+
+        time = 0;
+        startingTime = 0;
 
         activity = this;
-
-        getFilenameButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new ClientAsyncTask(activity, connectionInfoListener.getInfo().groupOwnerAddress).execute();
-            }
-        });
 
         connectButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,10 +116,17 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
             }
         });
 
-        disconnectButton.setOnClickListener(new View.OnClickListener() {
+        getTimeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                disconnect();
+                new ClientAsyncTask(activity, connectionInfoListener.getInfo().groupOwnerAddress).execute();
+            }
+        });
+
+        terminateServerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                terminate(time, startingTime);
             }
         });
 
@@ -142,6 +148,10 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
                         Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void setDebugText(String t) {
+        tv.setText(t);
     }
 
     public DeviceListListener getDeviceListListener() {
@@ -190,23 +200,20 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
         });
     }
 
-    public void disconnect() {
-        // empty the displayed peer list
-        // ...
+    public void setTime(long t) {
+        time = t;
+    }
 
-        mManager.removeGroup(mChannel, new ActionListener() {
+    public void setStartingTime(long st) {
+        startingTime = st;
+    }
 
-            @Override
-            public void onFailure(int reasonCode) {
-
-            }
-
-            @Override
-            public void onSuccess() {
-
-            }
-
-        });
+    public void terminate(long t, long st) {
+        Intent data = new Intent();
+        data.putExtra("time", t);
+        data.putExtra("startingTime", st);
+        setResult(RESULT_OK, data);
+        finish();
     }
 
     @Override
