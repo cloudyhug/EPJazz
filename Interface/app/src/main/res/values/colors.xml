@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryDark">#bf360c</color>
+    <color name="colorPrimary">#F4511E</color>
+
+    <color name="colorTab">#ff6e40</color>
+
+    <color name="colorTabSet">#F4511E</color>
+    <color name="colorBckSet">#ff7d53</color>
+
+    <color name="colorBckClr">#ffffff</color>
+
+    <color name="colorBackDis">#ff926f</color>
+
+    <color name="colorConnectButton">#e4daf6</color>
+    <color name="colorConnect">#cfc9dd</color>
+
+    <color name="colorMetro">#311B92</color>
+    <color name="colorAccent">#311b92</color>
+    <color name="colorBackground">#ffffff</color>
+    <color name="colorTitle">#ffffff</color>
+    <color name="colorTest">#aea3ff</color>
+    <color name="colorBackDiswhite">#ffae95</color>
+
+</resources>
