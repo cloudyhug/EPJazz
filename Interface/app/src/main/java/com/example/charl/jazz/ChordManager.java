@@ -9,9 +9,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.charl.jazz.network.WiFiDirectActivity;
 
 import java.util.*;
 import java.io.*;
@@ -78,14 +81,53 @@ public class ChordManager extends Activity {
                         .setAction("Action", null).show();
             }
         });*/
+        // ========== CRASH TEST ==========
 
+        Intent wifiIntent = new Intent(this, WiFiDirectActivity.class);
+        startActivityForResult(wifiIntent, 0);
+
+        // ========== END OF CRASH TEST ==========
+
+        /*
         Intent intent = this.getIntent();
         Bundle extras = intent.getExtras();
         if(extras != null) {
             titreMusique = extras.getString("titre");
             init(titreMusique);
         }
+        */
     }
+
+    // ========== CRASH TEST ==========
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 0) {
+            if (resultCode == RESULT_OK) {
+                // getting time from server
+                long t = data.getLongExtra("time", -1);
+                long st = data.getLongExtra("startingTime", -1);
+                long timeToWait = st - t;
+
+                // waiting the right amount of milliseconds
+                try {
+                    Thread.sleep(timeToWait);
+                } catch (InterruptedException ie) {
+                    Log.e("chordmanager", ie.getMessage());
+                }
+
+                // starting the chord progression
+                Intent intent = this.getIntent();
+                Bundle extras = intent.getExtras();
+                if(extras != null) {
+                    titreMusique = extras.getString("titre");
+                    init(titreMusique);
+                }
+            }
+        }
+    }
+
+    // ========== END OF CRASH TEST ==========
 
 
     public InputStream ouvrirFichier(String s){

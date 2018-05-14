@@ -46,6 +46,4 @@ public class Pp extends Fragment {
         return view;
     }
 
-
-
 }
