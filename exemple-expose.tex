@@ -1,0 +1,187 @@
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     STYLE POUR LES EXPOSES TECHNIQUES 
+%         3e année INSA de Rennes
+%
+%             NE PAS MODIFIER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,11pt]{article}
+
+
+\usepackage{/Users/maxime/Desktop/ep/exptech}       % Fichier (/Users/maxime/Desktop/ep/exptech.sty) contenant les styles pour 
+                           % l'expose technique (ne pas le modifier)
+
+%\linespread{1,6}          % Pour une version destinée à un relecteur,
+                           % décommenter cette commande (double interligne) 
+                           
+% UTILISEZ SPELL (correcteur orthographique) à accès simplifié depuis XEmacs
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{ \textbf{Application mobile \\
+    D'entrainement au jazz} }
+\markright{Application mobile d'entrainement au jazz} 
+                           % Pour avoir le titre de l'expose sur chaque page
+
+\author{Maxime \textsc{Le Feuvre}, Enzo \textsc{Crance}, Emre \textsc{Aydinli}\\
+        Charlotte \textsc{Richard}, Laure \textsc{Du Mesnildot} \\
+        \
+        Encadreurs : Yann \textsc{Ricquebourg}, Loic \textsc{Hel\"ouet} }
+
+\date{}                    % Ne pas modifier
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\maketitle                 % Générer le titre
+\thispagestyle{empty}      % Supprime le numéro de page sur la 1re page
+
+
+
+\begin{abstract}
+Lors de ce projet d'étude pratique, notre objectif fut de développer une application permettant à des musiciens de jazz de s'entrainer en Groupe.
+Pour rendre cela possible, cette application devait permettre de lire des grilles de jazz et gérer l'improvisation des musiciens sur celles-ci.
+
+Pour préciser l'objectif de cette application , prenons un exemple:
+Imaginons que quatre musiciens souhaitent s'entrainer et lancent l'application en décidant de jouer ensemble.
+Sur les écrans défilent une par une les notes de musique avec un métronome marquant le rythme.
+Ces notes défilant évidemment à la même vitesse sur les quatre écrans, les métronomes étant donc synchronisés.
+De plus, cette application devait également permettre aux musiciens de personnaliser la représentation des notes sur son application. Enfin une fonction de génération de grille de jazz aléatoire devait également être développée.
+ 
+
+\end{abstract} 
+
+
+\section{Introduction}  
+Dans l'intérêt de la compréhension de notre projet, il est important de commencer par un petit paragraphe sur le jazz.
+Une des premières choses à savoir est que les musiciens de jazz improvisent. Ensuite, ils ne lisent pas la musique sur de simples partitions mais sur des grilles de jazz qui représente les accords qui composent le thème principal.
+Dans la musique occidentale, il existe une sorte de convention qui décrit les notes qui vont bien ensemble, c'est un ton.
+Les musiciens de jazz improvisent autour de chaque note en essayant de rester dans le bon ton pour former les thème principal. Ensuite chaque fois qu'ils jouent le morceau, ils peuvent y ajouter la coloration qu'ils souhaitent.
+
+Notre application doit prendre en compte ces spécificité et essayer rendre l'entrainement d'un groupe de jazz simple et efficace.
+
+\subsection{Etat de l'art}
+Tout d'abord, il est important de donner de la crédibilité à notre projet. Pour cela il est important de vérifier qu'il n'existe pas de solution répondant aux besoins cités précédemment.
+
+Actuellement, sur le marché il existe des logiciels appelé "Digital Audio Workstation". Ce sont des logiciels de création musicale qui permettent bien évidemment d'éditer des grilles de jazz mais aussi de s'entrainer mais pas en groupe ni de générer des grilles aléatoires. De plus il existe un logiciel nommé ChordPulse, ce logiciel est sans doute celui qui ressemblerai le plus à l'idée que l'on peut se faire de notre application. En effet, il léger permet de s'entrainer mais seulement en solo. De plus toutes ces applications ne sont pas mobiles.
+
+\subsection{Objectifs}
+
+Grâce à la synchronisation, les musiciens suivent la grille sur leurs écrans respectifs en même temps. L'application est personnalisable, le musicien peut choisir la représentation des différentes notes. Il peut par exemple choisir de les faire représenter par du texte ou une image de son choix. Le musiciens peut aussi annoter sa grille, annotation qui apparaitra lors de la répétition. De plus il peut si il le souhaite ne pas avoir les mêmes notes sur la grille que ses partenaires. Cette application doit également permettre de générer des grilles aléatoires et posséder un métronome fiable pour pouvoir jouer dans de bonnes conditions. Cette application doit être mobile et pouvoir être utilisée sur un maximum de telephones et tablettes. 
+
+\section{Les problèmes à résoudre}
+Au début de ce projet, nous avons commencé par essayer d'identifier les problèmes principaux auxquels nous allions être confrontés. 
+\subsection{Grille de jazz}
+
+\subsection{Synchronisation}
+Nous devions trouver une solution pour faire communiquer les appareils afin qu'ils puissent partir en même temps. 
+Pour faire communiquer des terminaux androids, il existe plusieurs solutions:
+\begin{itemize}
+        \item Bluetooth
+
+        \item WI-FI
+\end{itemize}
+\subsection{Architecture}
+%Pour utiliser \LaTeX\ (disponible sur le réseau enseignement
+%\textbf{uniquement} sous \textbf{Unix/Linux}), copiez tous les fichiers de
+%\texttt{/home-info/commun/3info/ExpTech/} sur votre compte, puis 
+%tapez \texttt{xlatex exemple-expose}. Vous pouvez alors
+%lancer\footnote{équivalent à taper la commande : \texttt{latex mon-document}.}
+%\LaTeX\ (bouton \fbox{\textsf{Façonner}} 
+%ou \fbox{\includegraphics[height=0.75em]{/Users/maxime/Desktop/ep/xlatex.faconner.eps}}), 
+%voir\footnote{équivalent à taper la commande : \texttt{xdvi mon-document}.}
+%le résultat (bouton \fbox{\textsf{Visionner}}
+%ou \fbox{\includegraphics[height=0.75em]{/Users/maxime/Desktop/ep/xlatex.visionner.eps}}), etc.
+%
+%Lors de la compilation, en cas d'erreur, \LaTeX\ attend un ordre de
+%votre part. Les plus utiles sont :
+%\begin{itemize}
+%        \item[?] liste des commandes possibles ;
+%
+%        \item[h] diagnostic détaillé et suggestion de solution ; 
+% 
+%        \item[q] arrèt de \LaTeX.
+%\end{itemize}
+%
+%Pour avoir un descriptif plus étoffé des commandes \LaTeX\ 
+%utilisables, vous pouvez vous reporter à la documentation distribuée.
+%Si elle n'est pas suffisante, vous trouverez des informations
+%complémentaires à la bibliothèque dans \cite{lamport:latex:94} et
+%\cite{rolland:latex:95}.
+%
+%Sous Solaris vous avez les lettres minuscules accentuées
+%accessibles directement par les raccourcis spéciaux \textsf{shift-F1 à F12}, 
+%et les majuscules par \textsf{CapsLock} puis \textsf{shift-F1 â¡ F12}, 
+%ou bien plus classiquement par la séquence de touches 
+%\textsf{Compose accent lettre}.
+
+
+
+\section{Solution technique}
+\subsection{Interface}
+\subsection{Automate de lecture}
+\subsection{Synchronisation}  
+
+\section{conclusion}
+
+Ligne de remplissage pour visualiser la mise en page. Ligne de
+remplissage pour visualiser la mise en page. 
+
+\subsection{Titre de sous-section}
+\subsubsection{Titre de sous-sous-section}
+\paragraph{Titre de paragraphe}
+
+Exemple de référence à une figure au format PostScript encapsulé
+(figure~\ref{fig:exemple}). Cette figure a été créée à l'aide de
+\texttt{xfig}\footnote{disponible sous Unix/Linux.} après exportation 
+du fichier fig vers le format Encapsulated PostScript.
+
+% Utilisation de la commande pour inclure un fichier eps
+%------------------------------------------------------------------------------
+%       \FigurePS{h,t,b,p}{largeur}{nom_fichier}{titre}{nom_symbolique} 
+%------------------------------------------------------------------------------
+% {h,t,b,p} donne l'ordre de préférence du positionnement de la figure :
+%                 h -> here ; t -> top ; b -> bottom ; p -> end of part.
+%           En gÃnÃral, ne pas modifier cet argument.
+
+%------------------------------------------------------------------------------
+%\FigureEPS{h,t,b,p}{8.5cm}{./exemple-figure.eps}
+%                  {Exemple d'inclusion d'une figure EPS}   
+%                  {fig:exemple}
+%------------------------------------------------------------------------------
+
+Pour inclure une image, on doit aussi la convertir en EPS, avec
+la commande \texttt{convert}\footnote{
+disponible aussi sous Unix/Linux et à privilégier 
+car elle génère un EPS tout à fait standard 
+(au contraire de nombreux pilotes Windows).}
+\texttt{~image image.eps}, qui accepte pratiquement tous les formats d'images.
+
+
+\subsection{Encore un titre de sous-section}
+
+Exemple de liste à puces :
+\begin{itemize}
+        \item ligne de remplissage pour visualiser la mise en page. Ligne de
+        remplissage pour visualiser la mise en page ;
+
+        \item ligne de remplissage pour visualiser la mise en page. Ligne de
+        remplissage pour visualiser la mise en page.
+\end{itemize}
+
+Ligne de remplissage pour visualiser la mise en page. Ligne de remplissage pour
+visualiser la mise en page. 
+
+
+\section{Conclusion} 
+ 
+\LaTeX\ c'est facile pour produire des documents standard et nickel ! 
+Et Bib\TeX\ pour les références, c'est le pied.
+
+\bibliography{biblio}
+
+
+
+
+\end{document}
