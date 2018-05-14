@@ -188,7 +188,7 @@ public class BaseDD extends Fragment {
             modeOn = false;
             ImageViewCompat.setImageTintList(
                     fabDel,
-                    ColorStateList.valueOf(Color.parseColor("#FF6E40"))
+                    ColorStateList.valueOf(Color.parseColor("#c9c9c9"))
             );
             fabDel.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
 
@@ -212,7 +212,7 @@ public class BaseDD extends Fragment {
                 modeOn = false;
                 ImageViewCompat.setImageTintList(
                         fabDel,
-                        ColorStateList.valueOf(Color.parseColor("#FF6E40"))
+                        ColorStateList.valueOf(Color.parseColor("#c9c9c9"))
                 );
                 fabDel.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
             }
@@ -224,7 +224,7 @@ public class BaseDD extends Fragment {
                 modeOn = false;
                 ImageViewCompat.setImageTintList(
                         fabDel,
-                        ColorStateList.valueOf(Color.parseColor("#FF6E40"))
+                        ColorStateList.valueOf(Color.parseColor("#c9c9c9"))
                 );
                 fabDel.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
 

@@ -32,7 +32,7 @@ public class BddDelete extends Activity{
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*.8),(int)(height*.4));
+        getWindow().setLayout((int)(width*.5),(int)(height*.4));
 
 
         no.setOnClickListener(

@@ -4,12 +4,12 @@ package com.example.charl.jazz;
  * Created by charl on 24/04/2018.
  */
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.CountDownTimer;
+import android.os.Handler;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +41,13 @@ public class ChordManager extends Activity {
     private TextView tick4;
 
     private List<TextView> ticks;
+
+    private Handler handler2 = new Handler();
+
+    private ArrayList<String> resultat;
+    private int accordCourant;
+
+    private boolean stop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,7 +141,7 @@ public class ChordManager extends Activity {
 
                         boolean present = false; // variable pour voir si la liste d'états contient déjà un état avec le même nombre de départ (originState)
                         for (State s : states) {
-                            if (s.number == originState) present = true;
+                            if (s.getNumber() == originState) present = true;
                         }
 
                         // Si il n'y a aucun état avec le même nombre de départ, on en crée un
@@ -156,50 +163,17 @@ public class ChordManager extends Activity {
 
             ArrayList<State> arcs = getStates();
 
-            final ArrayList<String> resultat = new ArrayList<>();
+            resultat = new ArrayList<>();
 
-            int i = 0;
+
             for (State state : arcs){
                 resultat.add(state.getNext().toString2());
-                i++;
             }
-/**
- Intent retour = new Intent(ChordManager.this, MainActivity.class);
- for (State state : arcs){
- retour.putExtra("accord" + i, state.getNext().toString2());
- i++;
- }
- retour.putExtra("nbStates", i);*/
 
-            int nbSecondes = i*2000;
+            accordCourant = 0;
+            stop = false;
+            startTimer();
 
-            new CountDownTimer(nbSecondes, 2000){
-                int i = 0;
-                public void onTick(long millisUntilFinished) {
-                    // afficher l'accord
-                    accord.setText(resultat.get(i));
-                    accordSuivant.setText(resultat.get(++i));
-
-                    new CountDownTimer(2000, 500){
-                        int a = 0;
-                        public void onTick(long millisUntilFinished) {
-                            ticks.get(a).setTextColor(Color.RED);
-                            a++;
-                        }
-                        public void onFinish() {
-                            ticks.get(0).setTextColor(Color.GRAY);
-                            ticks.get(1).setTextColor(Color.GRAY);
-                            ticks.get(2).setTextColor(Color.GRAY);
-                            ticks.get(3).setTextColor(Color.GRAY);
-                        }
-                    }.start();
-                }
-                public void onFinish() {
-                    // message de fin
-                    accord.setText("ZE END");
-                    accordSuivant.setText("");
-                }
-            }.start();
 
         }
         catch (IOException e) {
@@ -207,6 +181,7 @@ public class ChordManager extends Activity {
             Toast.makeText(getApplicationContext(), "Erreur de lecture", Toast.LENGTH_LONG).show();
         }
     }
+
 
     /**
      Méthode qui renvoie la liste des différents états de la grille
@@ -216,82 +191,61 @@ public class ChordManager extends Activity {
     }
 
 
-    /**
-     Classe interne Transition qui correspond à un arc du diagramme. Elle décrit l'accord courant et l'état suivant.
-     Ex : 0-> A -> 1 donnera Transition(A,1)
-     */
-    public class Transition {
-        private String chord;
-        private int originState;
-        private int nextState;
 
-        public Transition(String chord, int ostate, int nstate) {
-            this.chord = chord;
-            this.originState = ostate;
-            this.nextState = nstate;
-        }
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CODE DU TIMER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-        public String toString(){
-            return (originState + "->" + chord + "->" + nextState);
-        }
+    int t = 0;
+    Runnable runnable2 = new Runnable() {
+        @Override
+        public void run() {
+            if(!stop){
+                ticks.get(t).setVisibility(View.VISIBLE);
+                if(t==0){
+                    ticks.get(1).setVisibility(View.INVISIBLE);
+                    ticks.get(2).setVisibility(View.INVISIBLE);
+                    ticks.get(3).setVisibility(View.INVISIBLE);
+                }
+                t++;
 
-        public String toString2(){
-            return (chord);
-        }
-    }
-
-
-    /**
-     Classe interne State qui décrit un état et toutes les transitions qu'on peut lui associer.
-     Ex : 0 -> A -> 1
-     0 -> B -> 2
-     A l'état 0 sont associées deux transitions : (A,1) et (B,2)
-     */
-    public class State {
-        private int number; // Numéro de l'état
-        private ArrayList<Transition> possibleTransitions; // Liste des transitions possibles
-
-        public State(int number) {
-            this.number = number;
-            possibleTransitions = new ArrayList<>();
-        }
-
-        /**
-         Méthode qui renvoie une transition au hasard parmi la liste des transitions possibles
-         */
-        public Transition getNext() {
-
-            Random rd = new Random(); // générateur de nombres au hasard
-            int index = rd.nextInt(possibleTransitions.size()); // on génère un entier entre 0 et la taille de la liste des transitions possibles
-            //System.out.println(index);
-
-            return possibleTransitions.get(index);
-        }
-
-        /**
-         Méthode qui ajoute une transition dans la liste des transitions possibles de cet état
-         */
-        public void addTransition(Transition t) {
-            possibleTransitions.add(t);
-        }
-
-        public String toString(){
-            String res = "";
-            for(Transition t : possibleTransitions){
-                res += t.toString() + "\n";
+                if(t>3){
+                    onStopTicks();
+                }
+                startTimer();
             }
-            return res;
         }
+    };
+
+    public void startTimer(){
+        handler2.postDelayed(runnable2, 1000);
+    }
+
+    public void onStopTicks(){
+        super.onStop();
+        handler2.removeCallbacks(runnable2);
+        t = 0;
+        if (accordCourant == resultat.size() - 1) {
+            accord.setText(resultat.get(accordCourant));
+            accordSuivant.setText("");
+        } else if (accordCourant >= resultat.size()) {
+            onStop();
+        } else {
+            accord.setText(resultat.get(accordCourant));
+            accordSuivant.setText(resultat.get(accordCourant + 1));
+        }
+        accordCourant++;
 
     }
 
-    public static void main(String[] args){
-
-        ChordManager cm = new ChordManager();
-        cm.init("/home/laolao/Documents/INSA/3ANNEE/ETUDES PRATIQUES/Grilles/Autumn_leaves.txt");
-        ArrayList<State> arcs = cm.getStates();
-        for (State state : arcs){
-            System.out.println(state.getNext().toString2());
+    @Override
+    protected void onStop() {
+        super.onStop();
+        handler2.removeCallbacks(runnable2);
+        accord.setText("ZE");
+        accordSuivant.setText("END");
+        for(TextView tick : ticks){
+            tick.setVisibility(View.INVISIBLE);
         }
+        stop = true;
     }
+
 }

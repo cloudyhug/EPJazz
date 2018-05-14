@@ -59,12 +59,11 @@
         android:layout_marginRight="8dp"
         android:src="@android:drawable/ic_menu_delete"
 
-        android:tint="@color/colorTab"
+        android:tint="#c9c9c9"
         app:backgroundTint="@color/colorTitle"
         app:layout_constraintBottom_toBottomOf="parent"
 
-        app:layout_constraintEnd_toStartOf="@+id/fab"
-        app:rippleColor="@color/colorTab" />
+        app:layout_constraintEnd_toStartOf="@+id/fab" />
 
 
 </android.support.constraint.ConstraintLayout>
