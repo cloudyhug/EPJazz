@@ -114,7 +114,11 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
         connectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                WifiP2pDevice d = deviceListListener.getPeers().get(0);
+                WifiP2pDevice d = null;
+                try {
+                    d = deviceListListener.getPeers().get(0);
+                } catch (IndexOutOfBoundsException e) {
+                }
                 WifiP2pConfig config = new WifiP2pConfig();
                 config.deviceAddress = d.deviceAddress;
                 config.wps.setup = WpsInfo.PBC;
