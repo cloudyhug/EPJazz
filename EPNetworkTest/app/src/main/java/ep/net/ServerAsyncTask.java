@@ -30,6 +30,7 @@ public class ServerAsyncTask extends AsyncTask<Void, Void, Void> {
             ServerSocket serverSocket = new ServerSocket(42042);
             while (true) {
                 Socket socket = serverSocket.accept();
+                time = System.currentTimeMillis();
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 PrintStream out = new PrintStream(socket.getOutputStream());
                 for (String inputLine; (inputLine = in.readLine()) != null; ) {
