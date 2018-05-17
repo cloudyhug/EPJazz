@@ -52,6 +52,8 @@ public class ClientAsyncTask extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         String[] times = result.split(" ");
-        activity.terminate(Long.valueOf(times[0]), Long.valueOf(times[1]));
+        long t1 = Long.valueOf(times[0]);
+        long tStart = Long.valueOf(times[1]);
+        activity.terminate(tStart - t1);
     }
 }

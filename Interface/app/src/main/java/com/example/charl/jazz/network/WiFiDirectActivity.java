@@ -64,8 +64,7 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
     private Button connectButton;
     private Button terminateServerButton;
 
-    private long time;
-    private long startingTime;
+    private long tStart;
 
     private WiFiDirectActivity activity;
 
@@ -106,9 +105,6 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
         terminateServerButton = findViewById(R.id.terminate_button);
         terminateServerButton.setEnabled(false);
 
-        time = 0;
-        startingTime = 0;
-
         activity = this;
 
         connectButton.setOnClickListener(new View.OnClickListener() {
@@ -136,7 +132,7 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
         terminateServerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                terminate(time, startingTime);
+                terminate(tStart - System.currentTimeMillis());
             }
         });
 
@@ -210,18 +206,13 @@ public class WiFiDirectActivity extends Activity implements ChannelListener {
         });
     }
 
-    public void setTime(long t) {
-        time = t;
+    public void setTStart(long ts) {
+        tStart = ts;
     }
 
-    public void setStartingTime(long st) {
-        startingTime = st;
-    }
-
-    public void terminate(long t, long st) {
+    public void terminate(long delta) {
         Intent data = new Intent();
-        data.putExtra("time", t);
-        data.putExtra("startingTime", st);
+        data.putExtra("timeToWait", delta);
         setResult(RESULT_OK, data);
         finish();
     }

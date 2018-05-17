@@ -16,12 +16,10 @@ import java.net.Socket;
  */
 
 public class ServerAsyncTask extends AsyncTask<Void, Void, Void> {
-    private long time;
-    private long startingTime;
+    private long tStart;
 
-    public ServerAsyncTask(long t, long st) {
-        time = t;
-        startingTime = st;
+    public ServerAsyncTask(long ts) {
+        tStart = ts;
     }
 
     @Override
@@ -30,12 +28,12 @@ public class ServerAsyncTask extends AsyncTask<Void, Void, Void> {
             ServerSocket serverSocket = new ServerSocket(42042);
             while (true) {
                 Socket socket = serverSocket.accept();
-                time = System.currentTimeMillis();
+                long t1 = System.currentTimeMillis();
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 PrintStream out = new PrintStream(socket.getOutputStream());
                 for (String inputLine; (inputLine = in.readLine()) != null; ) {
                     if (inputLine.equals("time?")) {
-                        out.println("time:" + time + " " + startingTime);
+                        out.println("time:" + t1 + " " + tStart);
                         out.flush();
                     }
                 }

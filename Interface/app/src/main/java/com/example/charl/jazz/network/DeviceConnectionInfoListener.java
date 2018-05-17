@@ -30,13 +30,12 @@ public class DeviceConnectionInfoListener implements ConnectionInfoListener {
         // After the group negotiation, we assign the group owner as the server.
         if (info.groupFormed && info.isGroupOwner && !serverStarted) {
             activity.setDebugText("we are leader");
-            long time = System.currentTimeMillis();
-            long startingTime = time + 15000;
-            activity.setTime(time);
-            activity.setStartingTime(startingTime);
+            long t0 = System.currentTimeMillis();
+            long tStart = t0 + 15000;
+            activity.setTStart(tStart);
             activity.setIsTerminateServerButtonEnabled(true);
             activity.setIsGetTimeButtonEnabled(false);
-            new ServerAsyncTask(time, startingTime).execute();
+            new ServerAsyncTask(tStart).execute();
             serverStarted = true;
         } else if (info.groupFormed) {
             activity.setDebugText("we are not leader");

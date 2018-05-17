@@ -105,13 +105,11 @@ public class ChordManager extends Activity {
         if (requestCode == 0) {
             if (resultCode == RESULT_OK) {
                 // getting time from server
-                long t = data.getLongExtra("time", -1);
-                long st = data.getLongExtra("startingTime", -1);
-                long timeToWait = st - t;
+                long delta = data.getLongExtra("timeToWait", -1);
 
                 // waiting the right amount of milliseconds
                 try {
-                    Thread.sleep(timeToWait);
+                    Thread.sleep(delta);
                 } catch (InterruptedException ie) {
                     Log.e("chordmanager", ie.getMessage());
                 }
