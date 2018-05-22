@@ -15,6 +15,6 @@
     <item
         android:id="@+id/dico"
         android:orderInCategory="100"
-        android:title="Index"
+        android:title="Dictionary"
         app:showAsAction="never" />
 </menu>

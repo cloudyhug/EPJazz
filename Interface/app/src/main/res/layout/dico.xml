@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:background="@color/colorTabSet"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="This is the index"
+            app:title="This is the dictionary"
             app:titleTextColor="@color/colorTitle">
         </android.support.v7.widget.Toolbar>
 
@@ -38,4 +38,48 @@
 
         android:text="M = Major"
         android:textColor="#320068" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/textView"
+        android:layout_marginLeft="13dp"
+
+        android:text="Maj = Major"
+        android:textColor="#320068" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/textView2"
+        android:layout_marginLeft="13dp"
+
+        android:text="m = Minor"
+        android:textColor="#320068" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/textView3"
+        android:layout_marginLeft="13dp"
+
+        android:text="min = Minor"
+        android:textColor="#320068" />
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/textView4"
+        android:layout_marginLeft="13dp"
+
+        android:text="- = Minor"
+        android:textColor="#320068" />
+
 </RelativeLayout>

@@ -18,7 +18,6 @@ import android.content.Context;
 public class Pp extends Fragment {
 
 
-    private FloatingActionButton fab;
     private Context context;
 
     @Override
@@ -27,19 +26,6 @@ public class Pp extends Fragment {
         View view = inflater.inflate(R.layout.pp, container, false);
 
         context = this.getContext();
-
-        fab = (FloatingActionButton) view.findViewById(R.id.connexionButton);
-
-        fab.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent=new Intent().setClass(context,Connexion.class);
-                        startActivity(intent);
-                    }
-                }
-        );
-
 
 
 

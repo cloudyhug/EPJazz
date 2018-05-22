@@ -6,7 +6,6 @@ package com.example.charl.jazz;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -34,23 +33,27 @@ public class ChordManager extends Activity {
     // Liste de tous les états possibles (= arcs du diagramme) de la grille
     private ArrayList<State> states;
 
-    private String titreMusique;
+    private ArrayList<String> resultat;
 
     private TextView accord;
     private TextView accordSuivant;
+    private TextView accordPrecedent;
     private TextView tick1;
     private TextView tick2;
     private TextView tick3;
     private TextView tick4;
-
     private List<TextView> ticks;
+    private TextView decompte;
 
     private Handler handler2 = new Handler();
 
-    private ArrayList<String> resultat;
-    private int accordCourant;
+    private String titreMusique;
+    private int bpm; // tempo choisi dans l'activité précédente
 
+    private int bpmMs; // tempo transformé en millisecondes
+    private int accordCourant;
     private boolean stop;
+    private boolean decompteFini;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +62,14 @@ public class ChordManager extends Activity {
 
         accord = (TextView) findViewById(R.id.accord);
         accordSuivant = (TextView) findViewById(R.id.accordSuivant);
+        accordPrecedent = (TextView) findViewById(R.id.accordPrecedent);
+
         tick1 = (TextView) findViewById(R.id.tick1);
         tick2 = (TextView) findViewById(R.id.tick2);
         tick3 = (TextView) findViewById(R.id.tick3);
         tick4 = (TextView) findViewById(R.id.tick4);
+
+        decompte = (TextView) findViewById(R.id.decompte);
 
         states = new ArrayList<>();
 
@@ -72,30 +79,12 @@ public class ChordManager extends Activity {
         ticks.add(tick3);
         ticks.add(tick4);
 
-
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
         // ========== CRASH TEST ==========
 
         Intent wifiIntent = new Intent(this, WiFiDirectActivity.class);
         startActivityForResult(wifiIntent, 0);
 
         // ========== END OF CRASH TEST ==========
-
-        /*
-        Intent intent = this.getIntent();
-        Bundle extras = intent.getExtras();
-        if(extras != null) {
-            titreMusique = extras.getString("titre");
-            init(titreMusique);
-        }
-        */
     }
 
     // ========== CRASH TEST ==========
@@ -119,6 +108,8 @@ public class ChordManager extends Activity {
                 Bundle extras = intent.getExtras();
                 if(extras != null) {
                     titreMusique = extras.getString("titre");
+                    bpm = Integer.valueOf(extras.getString("bpm"));
+                    bpmMs = 60000/bpm;
                     init(titreMusique);
                 }
             }
@@ -212,8 +203,13 @@ public class ChordManager extends Activity {
 
             accordCourant = 0;
             stop = false;
-            startTimer();
+            decompteFini = false;
 
+            accordPrecedent.setText("");
+            accord.setText(resultat.get(0));
+            accordSuivant.setText(resultat.get(1));
+
+            startTimer();
 
         }
         catch (IOException e) {
@@ -235,57 +231,95 @@ public class ChordManager extends Activity {
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CODE DU TIMER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     int t = 0;
+    int dec = 3;
     Runnable runnable2 = new Runnable() {
         @Override
         public void run() {
+            Log.d("Ticks", "tick = " + t);
             if(!stop){
-                ticks.get(t).setVisibility(View.VISIBLE);
-                if(t==0){
-                    ticks.get(1).setVisibility(View.INVISIBLE);
-                    ticks.get(2).setVisibility(View.INVISIBLE);
-                    ticks.get(3).setVisibility(View.INVISIBLE);
-                }
-                t++;
 
-                if(t>3){
-                    onStopTicks();
+                //affichage du décompte
+                if(!decompteFini){
+
+                    if(dec==1){
+                        decompteFini = true;
+                    }
+                    decompte.setText(""+dec);
+                    dec--;
+                    /*switch (dec){
+                        case 1:
+                            decompte.setImageResource(R.drawable.decompte_1);
+                            decompteFini = true;
+                            break;
+                        case 2:
+                            decompte.setImageResource(R.drawable.decompte_2);
+                            break;
+                        case 3:
+                            decompte.setImageResource(R.drawable.decompte_3);
+                            break;
+                    }*/
+                }
+
+                else{
+                    decompte.setText("PLAY !");
+                    if(t>3){
+                        onStopTicks();
+                    }
+                    ticks.get(t).setVisibility(View.VISIBLE);
+                    if(t==0){
+                        ticks.get(1).setVisibility(View.INVISIBLE);
+                        ticks.get(2).setVisibility(View.INVISIBLE);
+                        ticks.get(3).setVisibility(View.INVISIBLE);
+
+                        if (accordCourant == resultat.size() - 1) {
+                            accordPrecedent.setText(resultat.get(accordCourant-1));
+                            accord.setText(resultat.get(accordCourant));
+                            accordSuivant.setText("");
+                        }
+                        else if(accordCourant <= 0){
+                            accordPrecedent.setText("");
+                            accord.setText(resultat.get(accordCourant));
+                            accordSuivant.setText(resultat.get(accordCourant+1));
+                        }
+                        else if (accordCourant >= resultat.size()) {
+                            onStop();
+                        } else {
+                            accordPrecedent.setText(resultat.get(accordCourant-1));
+                            accord.setText(resultat.get(accordCourant));
+                            accordSuivant.setText(resultat.get(accordCourant + 1));
+                        }
+                        accordCourant++;
+                    }
+                    t++;
+
                 }
                 startTimer();
+
             }
         }
     };
 
     public void startTimer(){
-        handler2.postDelayed(runnable2, 1000);
+        handler2.postDelayed(runnable2, bpmMs);
     }
 
     public void onStopTicks(){
+        Log.d("STOP", "STOP");
         super.onStop();
         handler2.removeCallbacks(runnable2);
         t = 0;
-        if (accordCourant == resultat.size() - 1) {
-            accord.setText(resultat.get(accordCourant));
-            accordSuivant.setText("");
-        } else if (accordCourant >= resultat.size()) {
-            onStop();
-        } else {
-            accord.setText(resultat.get(accordCourant));
-            accordSuivant.setText(resultat.get(accordCourant + 1));
-        }
-        accordCourant++;
-
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         handler2.removeCallbacks(runnable2);
-        accord.setText("ZE");
-        accordSuivant.setText("END");
+        accord.setText("ZE END");
+        accordSuivant.setText("");
+        accordPrecedent.setText("");
         for(TextView tick : ticks){
             tick.setVisibility(View.INVISIBLE);
         }
         stop = true;
     }
-
 }
